@@ -19,7 +19,8 @@
         class="product-image"
         :class="[checkActive.some(v => v === detailProduct.id) ? 'active' : '']"
       >
-        <img :src="detailProduct.image ? '../../assets/images/default_product.png':detailProduct.name.match(/(\b\S)?/g).join('').toUpperCase()" :alt="detailProduct.name" />
+     {{detailProduct.name.match(/(\b\S)?/g).join('').toUpperCase()}}
+        <img :src="detailProduct.image"   :alt="detailProduct.name" />
       </div>
     </span>
     <div class="card-body product-detail">
