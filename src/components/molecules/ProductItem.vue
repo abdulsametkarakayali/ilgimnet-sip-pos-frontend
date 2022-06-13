@@ -19,7 +19,7 @@
         class="product-image"
         :class="[checkActive.some(v => v === detailProduct.id) ? 'active' : '']"
       >
-        <img :src="detailProduct.image || '../../assets/images/default_product.png'" :alt="detailProduct.name" />
+        <img :src="detailProduct.image ? '../../assets/images/default_product.png':''" :alt="detailProduct.name" />
       </div>
     </span>
     <div class="card-body product-detail">

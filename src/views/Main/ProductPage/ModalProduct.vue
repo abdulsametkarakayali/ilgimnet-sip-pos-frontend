@@ -107,7 +107,7 @@ export default {
           return this.toastError('Max file size 2MB')
         }
       }
-      formData.append('image', this.fileImage || '../../assets/images/default_product.png')
+      formData.append('image', this.fileImage?'../../assets/images/default_product.png':'')
       formData.append('name', this.product.name)
       formData.append('price', this.product.price)
       formData.append('idCategory', this.product.category)
