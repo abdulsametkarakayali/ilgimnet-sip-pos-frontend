@@ -23,8 +23,8 @@
         <small
           class="mb-0 mt-3 d-inline-block"
           v-if="emailMember !== 'no member'"
-        >Member: {{emailMember}}</small>
-        <p class="font-weight-bold font-15">Payment: Cash</p>
+        >Müşteri: {{emailMember}}</small>
+        <p class="font-weight-bold font-15">Ödeme: Nakit</p>
       </div>
     </div>
   </div>
