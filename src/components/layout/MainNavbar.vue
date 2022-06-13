@@ -15,7 +15,7 @@
           </button>
           <div
             class="navbar-title"
-          >{{currentRouteName === 'Home' ? 'Food Items' : currentRouteName}}</div>
+          >{{currentRouteName === 'Home' ? 'Ürün Listesi' : currentRouteName}}</div>
           <div>
             <button
               v-if="currentRouteName === 'Home' && roleId !== 3"

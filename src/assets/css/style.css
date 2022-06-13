@@ -149,6 +149,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px 4px 0 0;
+  background-color: #d4dbe3;
 }
 
 .product-image img {
