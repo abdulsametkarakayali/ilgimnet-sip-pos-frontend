@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
       <CardInfoHistory
         background="bg-1"
-        title="Today Income"
+        title="Satış Tutarı"
         showUpgrade="true"
         :price="getIncomeToday | currency"
         :upgradeCheck="checkIncomeStatus"
@@ -13,7 +13,7 @@
     <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
       <CardInfoHistory
         background="bg-2"
-        title="Orders Today"
+        title="Satış Sayısı"
         :price="getOrdersToday"
         :upgradeCheck="checkOrderStatus"
         showUpgrade="true"
@@ -23,7 +23,7 @@
     <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
       <CardInfoHistory
         background="bg-3"
-        title="This Year's Income"
+        title="Bu Yıl Geliri"
         :price="getThisYearIncome| currency"
         percent
       />

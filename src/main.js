@@ -28,7 +28,12 @@ const options = {
 
 Vue.use(BootstrapVue)
 Vue.use(VueCurrencyFilter, {
-  symbol: 'Rp.'
+  symbol: '₺',
+  thousandsSeparator: '.',
+  fractionCount: 2,
+  fractionSeparator: ',',
+  symbolPosition: 'front',
+  symbolSpacing: true
 })
 Vue.use(VueCryptojs)
 Vue.use(VueSweetalert2)
