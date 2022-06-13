@@ -113,6 +113,12 @@ body {
 
 .product-detail {
   padding: 5px 0 !important;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+    box-shadow: 0 5px 10pxrgba(0,0,0,.1);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 5px 10pxrgba(0,0,0,.1);
 }
 
 .product-title {
