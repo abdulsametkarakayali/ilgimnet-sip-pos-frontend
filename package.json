@@ -1,5 +1,5 @@
 {
-  "name": "sip-pos-vue",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -50,5 +50,12 @@
     "eslint-plugin-vue": "^6.2.2",
     "vue-jest": "^3.0.6",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "description": "<br />\r <p align=\"center\">",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "license": "ISC"
 }
