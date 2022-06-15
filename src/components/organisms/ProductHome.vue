@@ -106,4 +106,28 @@ export default {
 .height-not-found {
   height: 400px;
 }
+
+.keyboard {
+    /* position: fixed; */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    font-size: 50px;
+    line-height: 50px;
+    background: #f6f6f6;
+    color: #4a4a4a;
+    width: 100%;
+    /* height: 4.4rem; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    visibility: visible;
+    transform: translateZ(0);
+    transition-property: transform visibility;
+    transition-duration: .2s;
+    font-weight: 300;
+    border-top: 1px solid #e5e5e5;
+}
 </style>
