@@ -31,9 +31,11 @@
         />
       </b-col>
     </div>
-
       </b-card-text></b-tab>
-      <b-tab title="Tab 2"><b-card-text>Tab contents 45</b-card-text></b-tab>
+      <b-tab title="Tab 2">
+        <b-card-text>
+        <numkeyboard v-model="num" ok-text="OK" text-align="left"></numkeyboard>
+      </b-card-text></b-tab>
     </b-tabs>
   </b-card>
   </div>
