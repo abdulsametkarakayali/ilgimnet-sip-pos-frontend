@@ -114,8 +114,8 @@ export default {
     /* bottom: 0; */
     display: inline-table !important;
     /* z-index: 100; */
-    font-size: 5.0rem;
-    line-height: 5.0rem;
+    font-size: 5.0rem !important;
+    line-height: 5.0rem  !important;
     background: #f6f6f6;
     color: #4a4a4a;
     width: 100%;
