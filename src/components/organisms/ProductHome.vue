@@ -1,18 +1,24 @@
 <template>
   <div class="main-left mb-5">
-    <div class="row">
-      <SearchNavbar />
-      <b-col md="12">
-        <OrderProduct />
-      </b-col>
-    </div>
-    <div v-if="getLoading" class="mt-5">
+    
+
+ 
+    <b-card no-body>
+    <b-tabs pills card end>
+      <b-tab title="Tab 1" active><b-card-text>
+      <div class="row">
+            <SearchNavbar />
+            <b-col md="12">
+              <OrderProduct />
+            </b-col>
+       </div>
+      <div v-if="getLoading" class="mt-5">
       <div class="d-flex justify-content-center flex-column align-items-center mb-3">
         <b-spinner style="width: 3rem; height: 3rem;" label="Large Spinner" type="grow"></b-spinner>
         <span class="ml-2 d-block text-center mt-3">Loading...</span>
       </div>
     </div>
-    <ProductList v-if="!getLoading" />
+   <ProductList v-if="!getLoading" />
     <div class="row" v-if="!getLoading">
       <ProductNotFound v-if="allProducts.length < 1" />
       <b-col v-if="product.totalProduct !== 0" md="12 mt-4">
@@ -28,9 +34,8 @@
         />
       </b-col>
     </div>
-    <b-card no-body>
-    <b-tabs pills card end>
-      <b-tab title="Tab 1" active><b-card-text>Tab contents 44</b-card-text></b-tab>
+
+      </b-card-text></b-tab>
       <b-tab title="Tab 2"><b-card-text>Tab contents 45</b-card-text></b-tab>
     </b-tabs>
   </b-card>
