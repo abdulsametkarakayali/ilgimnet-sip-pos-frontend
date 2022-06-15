@@ -10,7 +10,7 @@
         class="product-image"
         :class="[checkActive.some(v => v === detailProduct.id) ? 'active' : '']"
       >
-        <img :src="detailProduct.image" :alt="detailProduct.name" />
+        <img :src="'https://www.phswarnerhoward.co.uk/assets/images/no_img_avaliable.jpg'" :alt="detailProduct.name" />
         <CheckIcon />
       </div>
     </a>
