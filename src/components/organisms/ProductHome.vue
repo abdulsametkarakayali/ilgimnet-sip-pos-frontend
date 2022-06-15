@@ -1,9 +1,6 @@
 <template>
   <div class="main-left mb-5">
-    
-
- 
-    <b-card no-body>
+  <b-card no-body>
     <b-tabs pills card end>
       <b-tab title="Tab 1" active><b-card-text>
       <div class="row">
