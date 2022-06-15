@@ -34,7 +34,7 @@
       </b-card-text></b-tab>
       <b-tab title="Tab 2">
         <b-card-text>
-        <numkeyboard v-model="num" ok-text="OK" text-align="left"></numkeyboard>
+        <numkeyboard class="keyboard" v-model="num" ok-text="OK" text-align="left"></numkeyboard>
       </b-card-text></b-tab>
     </b-tabs>
   </b-card>
@@ -108,13 +108,14 @@ export default {
 }
 
 .keyboard {
-    /* position: fixed; */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    font-size: 50px;
-    line-height: 50px;
+    position: relative !important;
+    /* left: 0; */
+    /* right: 0; */
+    /* bottom: 0; */
+    display: inline-table !important;
+    /* z-index: 100; */
+    font-size: 5.0rem;
+    line-height: 5.0rem;
     background: #f6f6f6;
     color: #4a4a4a;
     width: 100%;
