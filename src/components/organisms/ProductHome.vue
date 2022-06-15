@@ -1,8 +1,5 @@
 <template>
   <div class="main-left mb-5">
-     <b-card no-body>
-    <b-tabs pills card end>
-      <b-tab title="Tab 1" active><b-card-text>
     <div class="row">
       <SearchNavbar />
       <b-col md="12">
@@ -31,13 +28,15 @@
         />
       </b-col>
     </div>
-    </b-card-text></b-tab>
-      <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
+    <b-card no-body>
+    <b-tabs pills card end>
+      <b-tab title="Tab 1" active><b-card-text>Tab contents 44</b-card-text></b-tab>
+      <b-tab title="Tab 2"><b-card-text>Tab contents 45</b-card-text></b-tab>
     </b-tabs>
   </b-card>
   </div>
 </template>
-    
+
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex'
 import SearchNavbar from '@/components/molecules/SearchNavbar'
