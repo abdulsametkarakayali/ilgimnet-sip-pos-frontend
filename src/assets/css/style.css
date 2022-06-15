@@ -235,10 +235,17 @@ body {
 }
 
 .list-chart {
-  max-height: 500px;
-  overflow: scroll;
-  padding: 10px;
+  max-height:290px;
+    overflow: scroll; 
+  padding: 10px; 
   margin: 50px 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  overflow-y: auto;
+  height: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

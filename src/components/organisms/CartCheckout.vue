@@ -11,7 +11,7 @@
         <span>Total:</span>
         <span>{{cartTotalPrice | currency}}*</span>
       </div>
-      <p class="mt-2 mb-1">*Belum termasuk ppn</p>
+      <p class="mt-2 mb-1">*Fiyatlarımıza kdv dahildir.</p>
       <b-button
         @click="checkout"
         class="btn btn-two font-weight-bold py-2 mb-2 btn-block border-0"

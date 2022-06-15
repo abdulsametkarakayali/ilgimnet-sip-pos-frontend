@@ -28,6 +28,12 @@
         />
       </b-col>
     </div>
+    <b-card no-body>
+    <b-tabs pills card end>
+      <b-tab title="Tab 1" active><b-card-text>Tab contents 1</b-card-text></b-tab>
+      <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
+    </b-tabs>
+  </b-card>
   </div>
 </template>
 
@@ -64,7 +70,7 @@ export default {
         order: this.product.ordering.order,
         search: this.product.searchInputText,
         page,
-        limit: this.roleId !== 3 ? 9 : 12
+        limit: this.roleId !== 3 ? 6 : 12
       })
     }
   },
@@ -72,7 +78,7 @@ export default {
     if (!this.getLoading) {
       this.getProducts({
         page: this.product.currentPage,
-        limit: this.roleId !== 3 ? 9 : 12
+        limit: this.roleId !== 3 ? 6 : 12
       })
     }
   },
