@@ -34,7 +34,7 @@
       </b-card-text></b-tab>
       <b-tab title="Tab 2">
         <b-card-text>
-        <numkeyboard class="keyboard" v-model="num" ok-text="OK" text-align="left"></numkeyboard>
+       <AddCart/> 
       </b-card-text></b-tab>
     </b-tabs>
   </b-card>
@@ -47,6 +47,7 @@ import SearchNavbar from '@/components/molecules/SearchNavbar'
 import MainPagination from '@/components/molecules/MainPagination'
 import OrderProduct from '@/components/molecules/OrderProduct'
 import ProductList from '@/components/molecules/ProductList'
+import AddCart from '@/components/molecules/AddCart'
 import ProductNotFound from '@/components/atoms/ProductNotFound'
 
 export default {
@@ -56,7 +57,8 @@ export default {
     MainPagination,
     OrderProduct,
     SearchNavbar,
-    ProductNotFound
+    ProductNotFound,
+    AddCart
   },
   data() {
     return {
@@ -105,30 +107,5 @@ export default {
 <style scoped>
 .height-not-found {
   height: 400px;
-}
-
-.keyboard {
-    position: relative !important;
-    /* left: 0; */
-    /* right: 0; */
-    /* bottom: 0; */
-    display: inline-table !important;
-    /* z-index: 100; */
-    font-size: 5.0rem !important;
-    line-height: 5.0rem  !important;
-    background: #f6f6f6;
-    color: #4a4a4a;
-    width: 100%;
-    /* height: 4.4rem; */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    visibility: visible;
-    transform: translateZ(0);
-    transition-property: transform visibility;
-    transition-duration: .2s;
-    font-weight: 300;
-    border-top: 1px solid #e5e5e5;
 }
 </style>

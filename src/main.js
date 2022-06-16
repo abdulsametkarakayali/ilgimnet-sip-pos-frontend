@@ -4,7 +4,6 @@ import VueLazyload from 'vue-lazyload'
 import VueCurrencyFilter from 'vue-currency-filter'
 import VueSweetalert2 from 'vue-sweetalert2'
 import VueCryptojs from 'vue-cryptojs'
-import numkeyboard from 'vue-numkeyboard'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -20,7 +19,6 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'vue-search-select/dist/VueSearchSelect.css'
-import 'vue-numkeyboard/style.css'
 
 const options = {
   styles: [
@@ -38,7 +36,6 @@ Vue.use(VueCurrencyFilter, {
   symbolSpacing: true
 })
 Vue.use(VueCryptojs)
-Vue.use(numkeyboard)
 Vue.use(VueSweetalert2)
 Vue.use(VueLazyload)
 Vue.use(VueToast, {
