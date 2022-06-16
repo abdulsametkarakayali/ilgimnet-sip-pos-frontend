@@ -34,8 +34,10 @@
       </b-card-text></b-tab>
       <b-tab title="Tab 2">
         <b-card-text>
-       <AddCart/> 
-      </b-card-text></b-tab>
+     test
+      </b-card-text>
+        <AddCart/> 
+      </b-tab>
     </b-tabs>
   </b-card>
   </div>
