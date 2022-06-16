@@ -36,10 +36,11 @@
         <b-card-text>
      test
       </b-card-text>
-        <AddCart /> 
+        
       </b-tab>
     </b-tabs>
   </b-card>
+  <AddCart /> 
   </div>
 </template>
 
