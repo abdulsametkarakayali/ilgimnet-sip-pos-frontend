@@ -36,7 +36,7 @@
         <b-card-text>
      test
       </b-card-text>
-        <npm audit fix --force /> 
+        <AddCart /> 
       </b-tab>
     </b-tabs>
   </b-card>
@@ -60,7 +60,7 @@ export default {
     OrderProduct,
     SearchNavbar,
     ProductNotFound,
-    AddCart
+    AddCart,
   },
   data() {
     return {
