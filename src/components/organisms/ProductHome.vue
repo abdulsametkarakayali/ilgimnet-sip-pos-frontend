@@ -51,7 +51,6 @@ import OrderProduct from '@/components/molecules/OrderProduct'
 import ProductList from '@/components/molecules/ProductList'
 import AddCart from '@/components/molecules/AddCart'
 import ProductNotFound from '@/components/atoms/ProductNotFound'
-
 export default {
   name: 'ProductHome',
   components: {
