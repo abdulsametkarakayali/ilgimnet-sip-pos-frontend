@@ -5,7 +5,7 @@
       <b-tab title="Tab 1" active><b-card-text>
       <div class="row">
             <SearchNavbar />
-            <AddCart /> 
+            <AddCart />
             <b-col md="12">
               <OrderProduct />
             </b-col>
@@ -59,7 +59,7 @@ export default {
     OrderProduct,
     SearchNavbar,
     ProductNotFound,
-    AddCart,
+    AddCart
   },
   data() {
     return {
