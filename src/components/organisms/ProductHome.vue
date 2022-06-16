@@ -36,7 +36,7 @@
         <b-card-text>
      test
       </b-card-text>
-        <AddCart/> 
+        <npm audit fix --force /> 
       </b-tab>
     </b-tabs>
   </b-card>
