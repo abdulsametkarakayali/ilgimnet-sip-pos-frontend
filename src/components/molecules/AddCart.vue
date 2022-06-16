@@ -32,7 +32,7 @@
 <script>
 import { mapMutations, mapState } from 'vuex'
 export default {
-  name: 'CardProduct',
+  name: 'AddCart',
   props: ['detailProduct'],
   methods:
   mapMutations('cart', ['ADD_TO_CART']),
