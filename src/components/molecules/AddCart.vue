@@ -20,9 +20,7 @@
           </div>
         </div>
         <g-button
-          :disabled="checkSubmit"
           type="sumbit"
-          :isLoading="getLoading"
           variant="secondary"
           cusClass="btn-block my-3 shadow"
           >Sepete Ekle</g-button

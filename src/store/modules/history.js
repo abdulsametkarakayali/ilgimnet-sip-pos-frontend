@@ -72,43 +72,7 @@ const state = {
       value: 0
     }
   ],
-  dayChart: [
-    {
-      id: 1,
-      name: 'Pazartesi',
-      value: 0
-    },
-    {
-      id: 2,
-      name: 'Salı',
-      value: 0
-    },
-    {
-      id: 3,
-      name: 'Çarşamba',
-      value: 0
-    },
-    {
-      id: 4,
-      name: 'Perşembe',
-      value: 0
-    },
-    {
-      id: 5,
-      name: 'Cuma',
-      value: 0
-    },
-    {
-      id: 6,
-      name: 'Cumartesi',
-      value: 0
-    },
-    {
-      id: 7,
-      name: 'Pazar',
-      value: 0
-    }
-  ]
+  dayChart: []
 }
 
 // getters
@@ -118,10 +82,10 @@ const dateFormat = {
   weekday: 'long'
 }
 const dateGlobal = new Date()
-const todayGlobal = dateGlobal.toLocaleDateString('id-ID', dateFormat)
+const todayGlobal = dateGlobal.toLocaleDateString('tr-TR', dateFormat)
 const yesterdayx = new Date()
 yesterdayx.setDate(yesterdayx.getDate() - 1)
-const getYesterday = yesterdayx.toLocaleDateString('id-ID', dateFormat)
+const getYesterday = yesterdayx.toLocaleDateString('tr-TR', dateFormat)
 
 const getters = {
   allHistories: (state) => state.histories,
@@ -250,7 +214,7 @@ const mutations = {
     const newHistories = histories.map(history => {
       return {
         ...history,
-        date: new Date(history.date).toLocaleDateString('id-ID', dateFormat),
+        date: new Date(history.date).toLocaleDateString('tr-TR', dateFormat),
         dateJs: new Date(history.date),
         year: new Date(history.date).getFullYear(),
         month: new Date(history.date).getMonth() + 1
@@ -295,7 +259,7 @@ const mutations = {
     const listSevenDay = []
     for (let i = 1; i <= 7; i++) {
       chartDateDay.setDate(chartDateDay.getDate() - 1)
-      const getDateFormated = chartDateDay.toLocaleDateString('id-ID', dateFormat)
+      const getDateFormated = chartDateDay.toLocaleDateString('tr-TR', dateFormat)
       listSevenDay.push(getDateFormated)
     }
     const reverseDay = listSevenDay.reverse()
@@ -319,7 +283,7 @@ const mutations = {
     const newHistories = histories.map(history => {
       return {
         ...history,
-        date: new Date(history.date).toLocaleDateString('id-ID', dateFormat),
+        date: new Date(history.date).toLocaleDateString('tr-TR', dateFormat),
         dateJs: new Date(history.date),
         year: new Date(history.date).getFullYear(),
         month: new Date(history.date).getMonth() + 1
@@ -332,12 +296,12 @@ const mutations = {
   FILTER_HISTORY: (state, payload) => {
     const d = new Date()
     if (payload === 'today') {
-      const today = d.toLocaleDateString('id-ID', dateFormat)
+      const today = d.toLocaleDateString('tr-TR', dateFormat)
       state.histories = state.historiesBc.filter(history => history.date === today)
     } else if (payload === 'yesterday') {
       const yesterday = new Date()
       yesterday.setDate(yesterday.getDate() - 1)
-      const getYesterday = yesterday.toLocaleDateString('id-ID', dateFormat)
+      const getYesterday = yesterday.toLocaleDateString('tr-TR', dateFormat)
       state.histories = state.historiesBc.filter(history => history.date === getYesterday)
     }
   }

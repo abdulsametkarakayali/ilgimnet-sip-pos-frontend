@@ -83,7 +83,7 @@ export default {
     if (!this.getLoading) {
       this.getProducts({
         page: this.product.currentPage,
-        limit: this.roleId !== 3 ? 6 : 12
+        limit: this.roleId !== 3 ? 8 : 12
       })
     }
   },
