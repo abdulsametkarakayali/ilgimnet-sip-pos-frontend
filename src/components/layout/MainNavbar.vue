@@ -68,7 +68,7 @@
         >
           <div class="navbar-right">
             <div class="cart-title">
-              Cart
+              Sepet
               <span class="badge badge-info ml-1 rounded-circle">{{countTotalCart}}</span>
             </div>
           </div>

@@ -13,66 +13,102 @@ const state = {
   monthChart: [ //
     {
       id: 1,
-      name: 'January',
+      name: 'Ocak',
       value: 0
     },
     {
       id: 2,
-      name: 'February',
+      name: 'Şubat',
       value: 0
     },
     {
       id: 3,
-      name: 'March',
+      name: 'Mart',
       value: 0
     },
     {
       id: 4,
-      name: 'April',
+      name: 'Nisan',
       value: 0
     },
     {
       id: 5,
-      name: 'Mei',
+      name: 'Mayıs',
       value: 0
     },
     {
       id: 6,
-      name: 'June',
+      name: 'Haziran',
       value: 0
     },
     {
       id: 7,
-      name: 'July',
+      name: 'Temmuz',
       value: 0
     },
     {
       id: 8,
-      name: 'August',
+      name: 'Agustos',
       value: 0
     },
     {
       id: 9,
-      name: 'September',
+      name: 'Eylül',
       value: 0
     },
     {
       id: 10,
-      name: 'October',
+      name: 'Ekim',
       value: 0
     },
     {
       id: 11,
-      name: 'November',
+      name: 'Kasım',
       value: 0
     },
     {
       id: 12,
-      name: 'December',
+      name: 'Aralık',
       value: 0
     }
   ],
-  dayChart: []
+  dayChart: [
+    {
+      id: 1,
+      name: 'Pazartesi',
+      value: 0
+    },
+    {
+      id: 2,
+      name: 'Salı',
+      value: 0
+    },
+    {
+      id: 3,
+      name: 'Çarşamba',
+      value: 0
+    },
+    {
+      id: 4,
+      name: 'Perşembe',
+      value: 0
+    },
+    {
+      id: 5,
+      name: 'Cuma',
+      value: 0
+    },
+    {
+      id: 6,
+      name: 'Cumartesi',
+      value: 0
+    },
+    {
+      id: 7,
+      name: 'Pazar',
+      value: 0
+    }
+  ]
 }
 
 // getters

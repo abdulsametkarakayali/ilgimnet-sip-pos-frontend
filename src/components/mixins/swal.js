@@ -62,7 +62,7 @@ export default {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Delete'
+        confirmButtonText: 'Sil'
       }).then((result) => {
         if (result.value) {
           return cb()
@@ -77,7 +77,8 @@ export default {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes'
+        cancelButtonText: 'Hayır',
+        confirmButtonText: 'Evet'
       }).then((result) => {
         if (result.value) {
           return cb()

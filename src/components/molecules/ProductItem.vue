@@ -2,7 +2,6 @@
   <b-card no-body class="product">
     <a
       v-if="roleId !== 3"
-      @dblclick.prevent="REMOVE_PRODUCT_FROM_CART(detailProduct.id)"
       @click.prevent="ADD_TO_CART({product: detailProduct, qty: 1})"
       class="action-img"
     >
@@ -39,7 +38,7 @@ export default {
     CheckIcon
   },
   props: ['detailProduct', 'checkActive'],
-  methods: mapMutations('cart', ['ADD_TO_CART', 'REMOVE_PRODUCT_FROM_CART']),
+  methods: mapMutations('cart', ['ADD_TO_CART']),
   computed: {
     ...mapState('auth', ['roleId'])
   }

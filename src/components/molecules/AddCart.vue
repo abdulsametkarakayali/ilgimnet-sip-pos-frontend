@@ -1,19 +1,22 @@
 <template>
   <b-card no-body class="product">
-       <form @submit.prevent="login()">
+       <form @submit.prevent="addtocart()">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
+           <div class="alert alert-primary alert-dismissible fade show mt-2">
+          <p>Sistemde olmayan ürünü hızlıca sepete gönderebilirsiniz</p>
+          </div>
           <label for>Ürün Adı</label>
           <div class="form-group">
-            <input type="text" class="form-control" v-model="name" />
+            <input type="text" class="form-control" v-model="detailProduct.name" />
           </div>
              <label for>Fiyatı</label>
              <div class="form-group">
-            <input type="text" class="form-control" v-model="price" />
+            <input type="text" class="form-control" v-model="detailProduct.price" />
           </div>
              <label for>Adeti</label>
              <div class="form-group">
-            <input type="text" class="form-control"  v-model="qty" />
+            <input type="text" class="form-control"  v-model="detailProduct.qty" />
           </div>
         </div>
         <g-button
@@ -36,25 +39,24 @@ export default {
     return {
       detailProduct:
                      { // Dummy datalarımızı oluşturduk test amaçlı
-                         id: '',
+                         id: Math.floor(Math.random() * 10000) + 1,
                          name: '',
                          price: '',
                           qty: ''
-                     },
-      cart: []
+                     }
     }
   },
   name: 'AddCart',
   methods: {
     ...mapMutations('cart', ['ADD_TO_CART']),
-  login() {
-      const dataLogin = {
-        id: Math.floor(Math.random() * 10000) + 1,
-        name: this.name,
-        price: this.price,
-        qty: this.qty
-      }
-       this.ADD_TO_CART({ product: dataLogin, qty: dataLogin.qty })
+  addtocart() {
+      this.ADD_TO_CART({ product: this.detailProduct, qty: this.detailProduct.qty })
+       this.detailProduct = {
+                    id: Math.floor(Math.random() * 10000) + 1,
+                    name: null,
+                    price: null,
+                    qty: null
+                }
     }
 
   },

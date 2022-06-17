@@ -3,7 +3,7 @@
     <template #customHeader>
       <div class="px-4 pt-4">
         <div class="d-flex align-items-center justify-content-between">
-          <h5 class="font-weight-bold">Revenue</h5>
+          <h5 class="font-weight-bold">Satış Grafiği</h5>
           <select
             name
             class="badge badge-secondary rounded-sm outline-focus-none"

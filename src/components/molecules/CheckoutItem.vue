@@ -1,11 +1,11 @@
 <template>
   <div id="modal-checkout-1">
     <div class="modal-header border-bottom-0 pb-0">
-      <h5 class="modal-title font-weight-bold" id="addMenuLabel">Checkout</h5>
-      <span class="font-weight-bold">Receipt no: #{{getInvoice}}</span>
+      <h5 class="modal-title font-weight-bold" id="addMenuLabel">Ödeme Listesi</h5>
+      <span class="font-weight-bold">İşlem no: #{{getInvoice}}</span>
     </div>
     <div class="modal-body pt-2">
-      <small class="mb-5 d-inline-block">Cashier: {{getDetailUser.name}}</small>
+      <small class="mb-5 d-inline-block">Kasiyer: {{getDetailUser.name}}</small>
       <div class="print-list">
         <div
           class="d-flex justify-content-between text-center font-weight-bold"
@@ -13,8 +13,8 @@
           v-for="cart in cartCheckout.products"
           :key="cart.product.id"
         >
-          <span>{{cart.product.name}} {{cart.qty}}x</span>
-          <span>{{cart.product.price | currency}}</span>
+          <span>{{cart.product.name}} ( {{cart.qty}} adet x {{cart.product.price}})</span>
+          <span>{{cart.qty*cart.product.price| currency}}</span>
         </div>
         <div
           class="float-right font-weight-bold font-15"

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
       <CardInfoHistory
         background="bg-1"
         title="Satış Tutarı"
@@ -10,9 +10,9 @@
         :percent="`${difference >= 0 ? '+'+ difference : difference}% Yesterday`"
       />
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
       <CardInfoHistory
-        background="bg-2"
+        background="bg-1"
         title="Satış Sayısı"
         :price="getOrdersToday"
         :upgradeCheck="checkOrderStatus"
@@ -20,9 +20,17 @@
         :percent="`${getOrdersYesterday} orders yesterday`"
       />
     </div>
-    <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+     <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
       <CardInfoHistory
-        background="bg-3"
+        background="bg-1"
+        title="Ortalama İşlem Tutarı"
+        :price="getIncomeToday/getOrdersToday | currency"
+        percent
+      />
+    </div>
+    <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+      <CardInfoHistory
+        background="bg-1"
         title="Bu Yıl Geliri"
         :price="getThisYearIncome| currency"
         percent

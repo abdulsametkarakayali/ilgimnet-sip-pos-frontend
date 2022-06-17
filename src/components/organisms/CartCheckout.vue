@@ -4,18 +4,13 @@
     <CartEmpty v-if="carts.length < 1" />
     <div v-if="carts.length > 0" class="checkout py-5">
       <div class="form-group">
-        <label>Member</label>
+        <label>Müşteri Seç</label>
         <model-select :options="valueMemberForInput" v-model="member" placeholder="Select Member"></model-select>
       </div>
-      <div class="d-flex font-weight-bold justify-content-between">
-        <span>Total:</span>
-        <span>{{cartTotalPrice | currency}}*</span>
-      </div>
-      <p class="mt-2 mb-1">*Fiyatlarımıza kdv dahildir.</p>
       <b-button
         @click="checkout"
-        class="btn btn-two font-weight-bold py-2 mb-2 btn-block border-0"
-      >Checkout</b-button>
+        class="btn btn-success btn-two font-weight-bold py-2 mb-2 btn-block border-0"
+      >Ödeme {{cartTotalPrice | currency}} </b-button>
       <button @click="CLEAR_CART" class="btn btn-one font-weight-bold py-2 btn-block">Cancel</button>
     </div>
     <ModalCheckout />
@@ -53,7 +48,7 @@ export default {
     ...mapActions('history', ['postHistory']),
     ...mapActions('user', ['getMembers']),
     checkout() {
-      this.confirmSwal('Checkout', 'Want to checkout ?', 'question', () => {
+      this.confirmSwal('Ödeme ', 'Ödeme Alındı mı ?', 'question', () => {
         this.SAVE_CART_TO_MODAL({
           products: this.carts,
           price: this.cartTotalPrice

@@ -22,10 +22,19 @@ import 'vue-search-select/dist/VueSearchSelect.css'
 
 const options = {
   styles: [
-    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
-  ]
+    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
+    '/ilgimnet-sip-pos/src/assets/css/style.css'
+  ],
+  name: '_blank',
+  specs: [
+    'fullscreen=yes',
+    'titlebar=yes',
+    'scrollbars=yes'
+  ],
+  timeout: 1000, // default timeout before the print window appears
+  autoClose: true, // if false, the window will not close after printing
+  windowTitle: window.document.title
 }
-
 Vue.use(BootstrapVue)
 Vue.use(VueCurrencyFilter, {
   symbol: '₺',

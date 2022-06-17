@@ -4,7 +4,7 @@
       v-for="product in allProducts"
       :key="product.id"
       class="col-sm-6 mb-3"
-      :class="[roleId === 3 ? 'col-lg-3 col-md-4' : 'col-lg-4 col-md-4']"
+      :class="[roleId === 3 ? 'col-lg-3 col-md-3' : 'col-lg-3 col-md-3']"
     >
       <ProductItem :detailProduct="product" :checkActive="checkActive" />
     </div>

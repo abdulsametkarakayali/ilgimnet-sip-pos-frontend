@@ -117,7 +117,8 @@ body {
     -webkit-box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
     box-shadow: 0 5px 10pxrgba(0,0,0,.1);
     overflow: hidden;
-    background: #fff;
+    background: #d4dbe3;
+    border: 5px solid  #d4dbe3;
     box-shadow: 0 5px 10pxrgba(0,0,0,.1);
 }
 
@@ -214,16 +215,39 @@ body {
   color: #fff !important;
   background-color: #ee5f94 !important;
 }
+li.nav-item {
+  width: 50%;
+  
+}
+
+.card {
+  border-radius: 10px;
+    background-color: none !important;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+pills .show > .nav-link {
+  color: #000;
+  background-color: none !important;
+  border-top: 5px solid blue !important;
+  border-radius: 0px !important;
+}
+nav-link active {
+  border-top: 3px solid #f24f8a;
+  color: #fff !important;
+}
 
 .btn-two {
   color: #fff !important;
-  background-color: #57cad5 !important;
+  background-color: #5cb85c !important;
+  border-color: #4cae4c;
   border: 0 !important;
 }
 
 .btn-two:hover {
   color: #fff !important;
-  background-color: #41c5d1 !important;
+  background-color: #5cb85c !important;
 }
 
 .rounded-sm {
@@ -446,4 +470,10 @@ footer {
   align-items: center;
   font-weight: bold;
   font-size: 20px;
+}
+
+@media print {
+  @page {
+    size: landscape
+  }
 }

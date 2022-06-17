@@ -1,8 +1,8 @@
 <template>
   <div class="main-left mb-5">
   <b-card no-body>
-    <b-tabs pills card end>
-      <b-tab title="Tab 1" active><b-card-text>
+    <b-tabs pills card>
+      <b-tab title="Ürün Listesi" active><b-card-text>
       <div class="row">
             <SearchNavbar />
             <b-col md="12">
@@ -32,7 +32,7 @@
       </b-col>
     </div>
       </b-card-text></b-tab>
-      <b-tab title="Tab 2">
+      <b-tab  title="Ürün Gir">
         <b-card-text>
       <AddCart :detailProduct="product" />
       </b-card-text>
@@ -75,7 +75,7 @@ export default {
         order: this.product.ordering.order,
         search: this.product.searchInputText,
         page,
-        limit: this.roleId !== 3 ? 6 : 12
+        limit: this.roleId !== 3 ? 8 : 20
       })
     }
   },
