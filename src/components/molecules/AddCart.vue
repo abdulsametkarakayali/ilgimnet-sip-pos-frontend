@@ -1,6 +1,6 @@
 <template>
   <b-card no-body class="product">
-       <form @submit.prevent="ADD_TO_CART({name: this.name,price:this.price, qty: qty, ...this.detailProduct})">
+       <form @submit.prevent="login()">
       <div class="row">
         <div class="col-md-6">
           <label for>Ürün Adı</label>
@@ -22,7 +22,7 @@
           :isLoading="getLoading"
           variant="secondary"
           cusClass="btn-block my-3 shadow"
-          >Register</g-button
+          >Sepete Ekle</g-button
         >
       </div>
     </form>
@@ -32,14 +32,38 @@
 <script>
 import { mapMutations, mapState } from 'vuex'
 export default {
+    data() {
+    return {
+      detailProduct:
+                     { // Dummy datalarımızı oluşturduk test amaçlı
+                         id: '',
+                         name: '',
+                         price: '',
+                          qty: ''
+                     },
+      cart: []
+    }
+  },
   name: 'AddCart',
-  props: ['detailProduct'],
-  methods:
-  mapMutations('cart', ['ADD_TO_CART']),
-  computed: {
+  methods: {
+    ...mapMutations('cart', ['ADD_TO_CART']),
+  login() {
+      const dataLogin = {
+        id: Math.floor(Math.random() * 10000) + 1,
+        name: this.name,
+        price: this.price,
+        qty: this.qty
+      }
+       this.ADD_TO_CART({ product: dataLogin, qty: dataLogin.qty })
+    }
+
+  },
+   computed: {
     ...mapState('auth', ['roleId'])
   }
+
 }
+
 </script>
 
 <style scoped>

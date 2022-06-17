@@ -9,29 +9,15 @@
         </div>
       </div>
     </div>
-    <About />
     <Features />
-    <Pricing />
-    <Contact />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Footer from './components/Footer'
 import Header from './components/Header'
-import About from './components/About'
-import Features from './components/Features'
-import Pricing from './components/Pricing'
-import Contact from './components/Contact'
 export default {
   components: {
-    Header,
-    Footer,
-    About,
-    Features,
-    Pricing,
-    Contact
+    Header
   }
 }
 </script>

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "start": "serve -s -p $PORT dist",
+    "start:dev": "nodemon ./src/main.js",
+    "start": "serve -s -p $PORT dist ",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"

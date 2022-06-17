@@ -5,7 +5,6 @@
       <b-tab title="Tab 1" active><b-card-text>
       <div class="row">
             <SearchNavbar />
-            <AddCart />
             <b-col md="12">
               <OrderProduct />
             </b-col>
@@ -35,12 +34,11 @@
       </b-card-text></b-tab>
       <b-tab title="Tab 2">
         <b-card-text>
-      test
+      <AddCart :detailProduct="product" />
       </b-card-text>
       </b-tab>
     </b-tabs>
   </b-card>
-  AddCar
   </div>
 </template>
 <script>
