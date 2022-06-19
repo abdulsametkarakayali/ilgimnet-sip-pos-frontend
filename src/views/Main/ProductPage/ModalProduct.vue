@@ -42,7 +42,7 @@
       </div>
       <g-form-group
         label="Price"
-        type="number"
+        type="text"
         refInp="price"
         :isRow="true"
         v-model="product.price"

@@ -3,6 +3,13 @@
     <CartList v-if="carts.length > 0" />
     <CartEmpty v-if="carts.length < 1" />
     <div v-if="carts.length > 0" class="checkout py-5">
+       <div class="form-group">
+            <label for>Ödeme Yöntemi</label>
+            <select class="form-control">
+              <option  value="cash"  selected="selected" >Nakit</option>
+              <option selected value="card">Kredi Kartı</option>
+            </select>
+       </div>
       <div class="form-group">
         <label>Müşteri Seç</label>
         <model-select :options="valueMemberForInput" v-model="member" placeholder="Select Member"></model-select>
@@ -35,7 +42,8 @@ export default {
   },
   data() {
     return {
-      member: '0, no member'
+      member: '0, no member',
+      payment: '0, cash'
     }
   },
   methods: {
@@ -80,6 +88,7 @@ export default {
             this.toastSuccess('Transaction success')
             this.SET_EMAIL_MEMBER(isMember[1])
             this.member = '0, no member'
+            this.payment = '0, cash'
             this.$bvModal.show('modal-checkout')
           })
           .catch(({ error }) => {
