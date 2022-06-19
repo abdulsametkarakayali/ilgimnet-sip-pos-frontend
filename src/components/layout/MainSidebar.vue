@@ -53,6 +53,15 @@
       >
         <b-icon icon="person" scale="2" />
       </router-link>
+      <router-link
+        v-if="roleId === 1 || roleId === 2"
+        title="Terminal"
+        :to="{name: 'Terminal'}"
+        class="sidebar-item"
+        v-active="currentRouteName"
+      >
+        <img :src="require(`@/assets/images/clipboard.png`)" alt="history" />
+      </router-link>
       <ButtonLogout classBtn="btn m-0 p-0 sidebar-item">
         <b-icon icon="box-arrow-in-left" scale="1.5" />
       </ButtonLogout>

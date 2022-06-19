@@ -55,6 +55,7 @@ export default {
       this.product.product.price = ''
       this.product.product.image = ''
       this.product.product.category = ''
+      this.product.product.barcode = ''
     }
   },
   created() {
