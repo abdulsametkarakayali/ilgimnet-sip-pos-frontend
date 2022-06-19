@@ -36,6 +36,46 @@
         percent
       />
     </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+      <CardInfoHistory
+        background="bg-1"
+        title=" Ortalama Ürün Sayısı"
+        showUpgrade="true"
+        :price="getIncomeToday | currency"
+        :upgradeCheck="checkIncomeStatus"
+        :percent="`${difference >= 0 ? '+'+ difference : difference}% Yesterday`"
+      />
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+      <CardInfoHistory
+        background="bg-1"
+        title="Ortalama Ürün Tutarı"
+        showUpgrade="true"
+        :price="getIncomeToday | currency"
+        :upgradeCheck="checkIncomeStatus"
+        :percent="`${difference >= 0 ? '+'+ difference : difference}% Yesterday`"
+      />
+    </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+      <CardInfoHistory
+        background="bg-1"
+        title="Kar Marjı"
+        showUpgrade="true"
+        :price="getIncomeToday | currency"
+        :upgradeCheck="checkIncomeStatus"
+        :percent="`${difference >= 0 ? '+'+ difference : difference}% Yesterday`"
+      />
+    </div>
+  <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+      <CardInfoHistory
+        background="bg-1"
+        title="Toplam İade"
+        showUpgrade="true"
+        :price="getIncomeToday | currency"
+        :upgradeCheck="checkIncomeStatus"
+        :percent="`${difference >= 0 ? '+'+ difference : difference}% Yesterday`"
+      />
+    </div>
   </div>
 </template>
 

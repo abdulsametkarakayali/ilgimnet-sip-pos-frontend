@@ -8,12 +8,22 @@
     <form
       @submit.prevent="statusModal === 'add' ? addProduct() : updateProduct()"
     >
+    <div>
+    <b-card no-body>
+      <b-tabs pills card>
+        <b-tab title="Temel Bilgiler" active><b-card-text>
       <input type="hidden" v-model="product.id" />
       <g-form-group
         label="Name"
         refInp="name"
         :isRow="true"
         v-model="product.name"
+      />
+      <g-form-group
+        label="Barcode"
+        refInp="barcode"
+        :isRow="true"
+        v-model="product.barcode"
       />
       <input type="hidden" v-model="product.image" />
       <div class="form-group row">
@@ -41,11 +51,18 @@
         </div>
       </div>
       <g-form-group
-        label="Price"
+        label="Satış Fiyatı"
         type="text"
         refInp="price"
         :isRow="true"
         v-model="product.price"
+      />
+      <g-form-group
+        label="Alış Fiyatı"
+        type="text"
+        refInp="buyPrice"
+        :isRow="true"
+        v-model="product.buyPrice"
       />
       <g-form-group-select
         label="Category"
@@ -63,6 +80,34 @@
           {{ category.name }}
         </option>
       </g-form-group-select>
+        </b-card-text></b-tab>
+        <b-tab title="Detaylar"><b-card-text>
+      <g-form-group
+        label="Açıklama"
+        refInp="description"
+        type="textarea"
+        :isRow="true"
+        v-model="product.description"
+      />
+        </b-card-text></b-tab>
+        <b-tab title="Stok"><b-card-text>
+      <g-form-group
+        label="Stok Adedi"
+        refInp="description"
+        type="textarea"
+        :isRow="true"
+        v-model="product.stock_count"
+      />
+      <g-form-group
+        label="Alarm Adedi"
+        refInp="description"
+        type="textarea"
+        :isRow="true"
+        v-model="product.alarm_count"
+      />
+        </b-card-text></b-tab>
+      </b-tabs>
+    </b-card>
       <div class="modal-footer border-top-0">
         <g-button @cus-click="hideModal" cusClass="btn-one px-4 rounded-xs"
           >Cancel</g-button
@@ -74,6 +119,7 @@
           >{{ statusModal === 'add' ? 'Add' : 'Update' }}</g-button
         >
       </div>
+  </div>
     </form>
     {{ statusHideModal ? hideModal() : '' }}
   </b-modal>
@@ -109,7 +155,9 @@ export default {
       }
       formData.append('image', this.fileImage)
       formData.append('name', this.product.name)
+      formData.append('barcode', this.product.barcode)
       formData.append('price', this.product.price)
+      formData.append('buyPrice', this.product.buyPrice)
       formData.append('idCategory', this.product.category)
       this.postProduct(formData)
         .then((response) => {
@@ -132,7 +180,9 @@ export default {
       formData.append('image', this.fileImage)
       formData.append('oldImage', this.product.image)
       formData.append('name', this.product.name)
+      formData.append('barcode', this.product.barcode)
       formData.append('price', this.product.price)
+      formData.append('buyPrice', this.product.buyPrice)
       formData.append('idCategory', this.product.category)
       this.patchProduct({ data: formData, id: this.product.id })
         .then((response) => {

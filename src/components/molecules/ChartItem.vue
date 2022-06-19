@@ -13,8 +13,8 @@ export default {
         labels: this.labels,
         datasets: [
           {
-            label: `Revenue ${new Date().getFullYear()}`,
-            backgroundColor: '#f87979',
+            label: `Gelir ${new Date().getFullYear()}`,
+            backgroundColor: '#043d75',
             data: this.chartData
           }
         ]

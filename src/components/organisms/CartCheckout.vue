@@ -5,9 +5,9 @@
     <div v-if="carts.length > 0" class="checkout py-5">
        <div class="form-group">
             <label for>Ödeme Yöntemi</label>
-            <select class="form-control">
-              <option  value="cash"  selected="selected" >Nakit</option>
-              <option selected value="card">Kredi Kartı</option>
+            <select class="form-control" v-model="paymentType">
+              <option  value="0" selected  >Nakit</option>
+              <option  value="1">Kredi Kartı</option>
             </select>
        </div>
       <div class="form-group">
@@ -42,8 +42,7 @@ export default {
   },
   data() {
     return {
-      member: '0, no member',
-      payment: '0, cash'
+      member: '0, no member'
     }
   },
   methods: {
@@ -59,7 +58,8 @@ export default {
       this.confirmSwal('Ödeme ', 'Ödeme Alındı mı ?', 'question', () => {
         this.SAVE_CART_TO_MODAL({
           products: this.carts,
-          price: this.cartTotalPrice
+          price: this.cartTotalPrice,
+          paymentType: this.paymentType
         })
         const productName = []
         const purchaseAmount = []
@@ -75,6 +75,7 @@ export default {
         const isMember = this.member.split(', ')
         const dataHistory = {
           invoice: this.invoice,
+          paymentType: this.paymentType,
           idUser: this.getDetailUser.id,
           isMember: Number(isMember[0]),
           orders: productName.join(', '),
@@ -88,7 +89,6 @@ export default {
             this.toastSuccess('Transaction success')
             this.SET_EMAIL_MEMBER(isMember[1])
             this.member = '0, no member'
-            this.payment = '0, cash'
             this.$bvModal.show('modal-checkout')
           })
           .catch(({ error }) => {

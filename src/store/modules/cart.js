@@ -4,7 +4,8 @@ const state = {
   carts: [],
   cartCheckout: {
     products: [],
-    totalPrice: 0
+    totalPrice: 0,
+    paymentType: 0
   },
   emailMember: '',
   invoice: ''
@@ -103,10 +104,12 @@ const mutations = {
 
   SAVE_CART_TO_MODAL: (state, {
     products,
-    price
+    price,
+    paymentType
   }) => {
     state.cartCheckout.products = products
     state.cartCheckout.totalPrice = price
+    state.cartCheckout.paymentType = paymentType
     state.carts = []
   },
 

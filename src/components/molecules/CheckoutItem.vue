@@ -24,7 +24,7 @@
           class="mb-0 mt-3 d-inline-block"
           v-if="emailMember !== 'no member'"
         >Müşteri: {{emailMember}}</small>
-        <p class="font-weight-bold font-15">Ödeme: Nakit</p>
+        <p class="font-weight-bold font-15">Ödeme:{{cartCheckout.paymentType==0?'Nakit':'Kredi Kartı'}}</p>
       </div>
     </div>
   </div>

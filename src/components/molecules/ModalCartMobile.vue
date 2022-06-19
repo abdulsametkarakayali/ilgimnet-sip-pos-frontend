@@ -67,11 +67,13 @@ export default {
           price: this.cartTotalPrice
         })
         const productName = []
+        const paymentType = []
         const purchaseAmount = []
         const initialPrice = []
         const priceAmount = []
         this.cartCheckout.products.map((cart) => {
           productName.push(cart.product.name)
+          paymentType.push(cart.product.paymentType)
           purchaseAmount.push(cart.qty)
           initialPrice.push(cart.product.price)
           priceAmount.push(cart.qty * cart.product.price)

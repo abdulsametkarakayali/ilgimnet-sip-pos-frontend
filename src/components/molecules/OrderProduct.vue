@@ -27,27 +27,27 @@ export default {
       sort: ['id', 'desc'],
       listOrders: [
         {
-          name: 'Newest',
+          name: 'Yeni',
           ordSort: ['id', 'desc']
         },
         {
-          name: 'Oldest',
+          name: 'Eski',
           ordSort: ['id', 'asc']
         },
         {
-          name: 'Name A-Z',
+          name: 'Ad A-Z',
           ordSort: ['name', 'asc']
         },
         {
-          name: 'Name Z-A',
+          name: 'Ad Z-A',
           ordSort: ['name', 'desc']
         },
         {
-          name: 'Cheapest',
+          name: 'Ucuz',
           ordSort: ['price', 'asc']
         },
         {
-          name: 'Expensive',
+          name: 'Pahalı',
           ordSort: ['price', 'desc']
         }
       ]
