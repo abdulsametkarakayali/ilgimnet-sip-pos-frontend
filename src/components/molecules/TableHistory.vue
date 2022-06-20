@@ -35,7 +35,7 @@
         v-slot:cell(id)="data"
       >{{currentPage === 1 ? (data.index + 1) : (perPage * (currentPage - 1) + 1) + data.index}}</template>
       <template v-slot:cell(invoice)="data">#{{data.item.invoice}}</template>
-      <template v-slot:cell(date)="data">{{data.item.date}}</template>
+      <template v-slot:cell(date)="data">{{JSON.stringify(data.item.date)}}</template>
       <template v-slot:cell(paymentType)="data">{{data.item.paymentType == 0?'Nakit':'Kredi Kartı'}}</template>
       <template
         v-slot:cell(orders)="data"

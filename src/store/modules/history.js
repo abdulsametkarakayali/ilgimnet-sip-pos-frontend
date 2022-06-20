@@ -6,6 +6,8 @@ const state = {
   myHistories: [],
   historiesBc: [],
   incomeToday: '',
+  CardPayment: '',
+  CashPayment: '',
   incomeYesterday: '',
   ordersToday: '',
   ordersYesterday: '',
@@ -76,21 +78,18 @@ const state = {
 }
 
 // getters
-const dateFormat = {
-  day: 'numeric',
-  month: 'long',
-  weekday: 'long'
-}
 const dateGlobal = new Date()
-const todayGlobal = dateGlobal.toLocaleDateString('tr-TR', dateFormat)
+const todayGlobal = dateGlobal.toLocaleDateString('tr-TR', { timeZone: 'UTC' })
 const yesterdayx = new Date()
 yesterdayx.setDate(yesterdayx.getDate() - 1)
-const getYesterday = yesterdayx.toLocaleDateString('tr-TR', dateFormat)
+const getYesterday = yesterdayx.toLocaleDateString('tr-TR', { timeZone: 'UTC' })
 
 const getters = {
   allHistories: (state) => state.histories,
   allMyHistories: (state) => state.myHistories,
   getIncomeToday: (state) => state.incomeToday,
+  getCashPayment: (state) => state.CashPayment,
+  getCardPayment: (state) => state.CardPayment,
   getIncomeYesterday: (state) => state.incomeYesterday,
   getThisYearIncome: (state) => state.thisYearIncome,
   getOrdersToday: (state) => state.ordersToday,
@@ -214,7 +213,7 @@ const mutations = {
     const newHistories = histories.map(history => {
       return {
         ...history,
-        date: new Date(history.date).toLocaleDateString('tr-TR', dateFormat),
+        date: new Date(history.date).toLocaleDateString('tr-TR', { timeZone: 'UTC' }),
         dateJs: new Date(history.date),
         year: new Date(history.date).getFullYear(),
         month: new Date(history.date).getMonth() + 1
@@ -243,6 +242,8 @@ const mutations = {
     }
 
     state.ordersToday = newHistories.filter(history => history.date === todayGlobal).length
+    state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.CashPayment = newHistories.filter(history => history.paymentType === 0 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     state.ordersYesterday = newHistories.filter(history => history.date === getYesterday).length
     state.monthChart.map((monthItem) => {
       monthItem.value = 0
@@ -259,7 +260,7 @@ const mutations = {
     const listSevenDay = []
     for (let i = 1; i <= 7; i++) {
       chartDateDay.setDate(chartDateDay.getDate() - 1)
-      const getDateFormated = chartDateDay.toLocaleDateString('tr-TR', dateFormat)
+      const getDateFormated = chartDateDay.toLocaleDateString('tr-TR', { timeZone: 'UTC' })
       listSevenDay.push(getDateFormated)
     }
     const reverseDay = listSevenDay.reverse()
@@ -283,7 +284,7 @@ const mutations = {
     const newHistories = histories.map(history => {
       return {
         ...history,
-        date: new Date(history.date).toLocaleDateString('tr-TR', dateFormat),
+        date: new Date(history.date).toLocaleDateString('tr-TR', { timeZone: 'UTC' }),
         dateJs: new Date(history.date),
         year: new Date(history.date).getFullYear(),
         month: new Date(history.date).getMonth() + 1
@@ -296,12 +297,12 @@ const mutations = {
   FILTER_HISTORY: (state, payload) => {
     const d = new Date()
     if (payload === 'today') {
-      const today = d.toLocaleDateString('tr-TR', dateFormat)
+      const today = d.toLocaleDateString('tr-TR', { timeZone: 'UTC' })
       state.histories = state.historiesBc.filter(history => history.date === today)
     } else if (payload === 'yesterday') {
       const yesterday = new Date()
       yesterday.setDate(yesterday.getDate() - 1)
-      const getYesterday = yesterday.toLocaleDateString('tr-TR', dateFormat)
+      const getYesterday = yesterday.toLocaleDateString('tr-TR', { timeZone: 'UTC' })
       state.histories = state.historiesBc.filter(history => history.date === getYesterday)
     }
   }

@@ -4,6 +4,7 @@ import Home from '../views/Main/HomePage'
 import History from '../views/Main/HistoryPage'
 import Product from '../views/Main/ProductPage'
 import Category from '../views/Main/CategoryPage'
+import Terminal from '../views/Main/Terminal'
 import Main from '../views/Main/index.vue'
 import Landing from '../views/Landing/index.vue'
 import Auth from '../views/Auth'
@@ -103,6 +104,14 @@ const routes = [
         path: 'category',
         name: 'Category',
         component: Category,
+        meta: {
+          requiresAdmin: true
+        }
+      },
+      {
+        path: 'terminal',
+        name: 'Terminal',
+        component: Terminal,
         meta: {
           requiresAdmin: true
         }

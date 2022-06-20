@@ -10,6 +10,9 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'eol-last': 0,
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
+    /* eslint-disable eol-last */
     indent: 'off',
     'space-before-function-paren': ['error', 'never']
   },
