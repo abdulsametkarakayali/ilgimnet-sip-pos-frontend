@@ -6,11 +6,9 @@
           <div class="content-left history pt-4 pr-4 pb-0">
             <Sidebar />
             <div class="main-left mb-2">
+              test
               <ListInfoTerminal />
               <div class="row">
-                <div class="col-md-12 my-4">
-                  <ChartCard />
-                </div>
                 <div class="col-md-12 mb-5 mt-3">
                   <OrderCard />
                 </div>
@@ -27,7 +25,6 @@
 import ListInfoTerminal from '@/components/molecules/ListInfoTerminal'
 import Sidebar from '@/components/layout/MainSidebar'
 import OrderCard from '@/components/organisms/OrderCard'
-import ChartCard from '@/components/organisms/ChartCard'
 // @ is an alias to /src
 import '@/assets/css/style.css'
 export default {
@@ -35,7 +32,6 @@ export default {
   components: {
     Sidebar,
     OrderCard,
-    ChartCard,
     ListInfoTerminal
   },
   data() {

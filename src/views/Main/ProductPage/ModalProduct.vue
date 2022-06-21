@@ -159,8 +159,10 @@ export default {
       formData.append('price', this.product.price)
       formData.append('buyPrice', this.product.buyPrice)
       formData.append('idCategory', this.product.category)
+      console.log(formData)
       this.postProduct(formData)
         .then((response) => {
+          console.log(formData)
           this.toastSuccess('Data successfully added')
         })
         .catch(({ error }) => {

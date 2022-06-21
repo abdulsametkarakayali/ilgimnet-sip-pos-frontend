@@ -9,7 +9,6 @@ const state = () => ({
     image: '',
     price: '',
     category: '',
-    barcode: '',
     id: ''
   },
   currentPage: 1,
@@ -209,7 +208,6 @@ const mutations = {
       price,
       image,
       idCategory,
-      barcode,
       id
     } = data
     state.product.name = name
@@ -217,7 +215,6 @@ const mutations = {
     state.product.image = image
     state.product.category = idCategory
     state.product.id = id
-    state.product.barcode = barcode
   },
 
   UPDATE_SEARCH_INPUT_TEXT: (state, data) => {

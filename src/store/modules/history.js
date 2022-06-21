@@ -78,6 +78,7 @@ const state = {
 }
 
 // getters
+
 const dateGlobal = new Date()
 const todayGlobal = dateGlobal.toLocaleDateString('tr-TR', { timeZone: 'UTC' })
 const yesterdayx = new Date()
