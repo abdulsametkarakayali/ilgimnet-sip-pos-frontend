@@ -18,6 +18,7 @@
         @click="checkout"
         class="btn btn-success btn-two font-weight-bold py-2 mb-2 btn-block border-0"
       >Ödeme {{cartTotalPrice | currency}} </b-button>
+      <button @click="print" class="btn btn-blue   font-weight-bold py-2 btn-block">Yazdr</button>
       <button @click="CLEAR_CART" class="btn btn-one font-weight-bold py-2 btn-block">Cancel</button>
     </div>
     <ModalCheckout />
@@ -49,6 +50,7 @@ export default {
     ...mapMutations('cart', [
       'CLEAR_CART',
       'SAVE_CART_TO_MODAL',
+      'PRINT_TO_MODAL',
       'GENERATE_INVOICE',
       'SET_EMAIL_MEMBER'
     ]),
@@ -97,9 +99,28 @@ export default {
             )
           })
       })
-    }
-  },
-  mounted() {
+    },
+    print() {
+        this.PRINT_TO_MODAL({
+          products: this.carts,
+          price: this.cartTotalPrice,
+          paymentType: this.paymentType
+        })
+        const productName = []
+        const purchaseAmount = []
+        const initialPrice = []
+        const priceAmount = []
+        this.cartCheckout.products.map((cart) => {
+          productName.push(cart.product.name)
+          purchaseAmount.push(cart.qty)
+          initialPrice.push(cart.product.price)
+          priceAmount.push(cart.qty * cart.product.price)
+        })
+        this.SET_EMAIL_MEMBER('0, nos member')
+        this.$bvModal.show('modal-checkout')
+  }
+},
+   mounted() {
     if (this.roleId !== 3) this.getMembers()
   },
   computed: {

@@ -28,6 +28,9 @@
          <span>Mali Değeri Yoktur.
             Ürünlerimizi sağlıkla kullanın
            </span>
+            <hr>
+          <span>www.ilgim.net
+           </span>
       </div>
     </div>
   </div>

@@ -4,9 +4,6 @@
       Login
       <b-icon icon="shield-lock-fill" />
     </h2>
-    <small class="mb-4 d-inline-block"
-      >Welcome please login to your account</small
-    >
     <form @submit.prevent="login">
       <div class="form-group">
         <label for>Email</label>

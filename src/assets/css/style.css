@@ -250,6 +250,18 @@ nav-link active {
   background-color: #5cb85c !important;
 }
 
+.btn-blue {
+  color: #fff !important;
+  background-color: #0d6efd  !important;
+  border-color: #4cae4c;
+  border: 0 !important;
+}
+
+.btn-blue:hover {
+  color: #fff !important;
+  background-color: #6610f2  !important;
+}
+
 .rounded-sm {
   border-radius: 10px !important;
 }

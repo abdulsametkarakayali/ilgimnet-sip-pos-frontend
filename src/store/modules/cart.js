@@ -91,6 +91,9 @@ const mutations = {
 
   SET_EMAIL_MEMBER: (state, payload) => {
     state.emailMember = payload
+    if (payload.length > 0) {
+      state.emailMember = 'no member'
+    }
   },
 
   CLEAR_CART: (state) => {
@@ -112,7 +115,15 @@ const mutations = {
     state.cartCheckout.paymentType = paymentType
     state.carts = []
   },
-
+  PRINT_TO_MODAL: (state, {
+    products,
+    price,
+    paymentType
+  }) => {
+    state.cartCheckout.products = products
+    state.cartCheckout.totalPrice = price
+    state.cartCheckout.paymentType = paymentType
+  },
   MIN_QTY_CART: (state, product) => {
     const productInCart = state.carts.find(val => {
       return val.product.id === product.id

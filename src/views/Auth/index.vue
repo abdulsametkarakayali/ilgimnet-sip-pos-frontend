@@ -6,14 +6,6 @@
           <div class="row no-gutters here">
             <div class="col-md-5">
               <div class="bg-dark auth-left p-5 d-flex justify-content-between flex-column">
-                <router-link :to="{name: 'Landing'}" class="item-side">
-                  <img :src="require(`@/assets/images/logo2.png`)" width="80" class="img-fluid" alt />
-                </router-link>
-                <h1 class="text-white font-weight-bold item-side">
-                  Welcome
-                  <br />
-                  To {{setting.appName}}
-                </h1>
                 <div class="text-white item-side clock">
                   <div
                     class="alert alert-primary alert-dismissible fade show mt-2"

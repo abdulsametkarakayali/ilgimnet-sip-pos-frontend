@@ -6,13 +6,9 @@
           <div class="content-left history pt-4 pr-4 pb-0">
             <Sidebar />
             <div class="main-left mb-2">
-              test
+              Kasa Aç ,
+              Kasayı Kapat
               <ListInfoTerminal />
-              <div class="row">
-                <div class="col-md-12 mb-5 mt-3">
-                  <OrderCard />
-                </div>
-              </div>
             </div>
           </div>
         </b-col>
@@ -24,14 +20,12 @@
 <script>
 import ListInfoTerminal from '@/components/molecules/ListInfoTerminal'
 import Sidebar from '@/components/layout/MainSidebar'
-import OrderCard from '@/components/organisms/OrderCard'
 // @ is an alias to /src
 import '@/assets/css/style.css'
 export default {
   name: 'Terminal',
   components: {
     Sidebar,
-    OrderCard,
     ListInfoTerminal
   },
   data() {
