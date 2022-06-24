@@ -1,33 +1,4 @@
 <template>
-<div>
-      <div id="modal-checkout">
-      <table width="100%" border="1" style="border-collapse: collapse">
-        <tr>
-          <th>No</th>
-          <th>Name</th>
-          <th>Unit</th>
-          <th>Qty</th>
-          <th>Price</th>
-          <th>Amount</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-      </table>
-    </div>
   <div id="modal-checkout">
     <div class="modal-header border-bottom-0 pb-0">
       <h5 class="modal-title font-weight-bold" id="addMenuLabel">Ödeme Listesi</h5>
@@ -59,7 +30,6 @@
            </span>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
