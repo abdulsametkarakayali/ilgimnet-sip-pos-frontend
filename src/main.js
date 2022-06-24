@@ -22,7 +22,7 @@ import 'vue-search-select/dist/VueSearchSelect.css'
 
 const options = {
   styles: [
-    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
+    'https://stackpath.bootstrapcdn.com/bootstrawp/4.5.2/css/bootstrap.min.css',
     '/ilgimnet-sip-pos/src/assets/css/style.css'
   ],
   name: '_blank',
