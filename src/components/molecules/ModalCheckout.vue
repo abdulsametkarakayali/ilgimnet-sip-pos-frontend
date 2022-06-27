@@ -11,7 +11,7 @@
         type="button"
         class="btn btn-one px-4 font-weight-bold rounded-xs btn-block"
         @click="printInvoice"
-      >Print</button>
+      >Yazdır</button>
       <div v-if="emailMember !== 'no member'">
         <p class="text-center">Or</p>
         <g-button

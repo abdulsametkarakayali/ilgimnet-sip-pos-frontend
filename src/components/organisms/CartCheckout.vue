@@ -43,7 +43,8 @@ export default {
   },
   data() {
     return {
-      member: '0, no member'
+      member: '0, no member',
+      paymentType: '0'
     }
   },
   methods: {

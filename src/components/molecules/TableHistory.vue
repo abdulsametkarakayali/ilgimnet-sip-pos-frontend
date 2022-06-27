@@ -61,6 +61,7 @@
             <thead>
               <th>#</th>
               <th>Name</th>
+              <th>Barcode</th>
               <th>Initial Price</th>
               <th>Qty</th>
               <th>Total Price</th>
@@ -69,6 +70,7 @@
               <tr v-for="(detailOrder, i) in row.item.detailOrders" :key="i">
                 <td>{{i + 1}}</td>
                 <td>{{detailOrder.name}}</td>
+                <td>{{detailOrder.barcode}}</td>
                 <td>{{detailOrder.initialPrice | currency}}</td>
                 <td>{{detailOrder.purchaseAmount}}</td>
                 <td>{{detailOrder.priceAmount | currency}}</td>

@@ -4,7 +4,7 @@
       <div class="input-group">
         <div class="input-group-append" id="button-addon4">
           <select @change="changeOrder" v-model="sort" class="form-control">
-            <option disabled selected>Sort By</option>
+            <option disabled selected>Sıralam</option>
             <option
               :value="listOrder.ordSort"
               :selected="ordering === listOrder.ordSort"
