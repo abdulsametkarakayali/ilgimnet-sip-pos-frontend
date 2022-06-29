@@ -1,8 +1,8 @@
 <template>
-  <div class="main-left mb-5">
+  <div class="main-left mb-5" >
   <b-card no-body>
     <b-tabs pills card>
-      <b-tab title="Ürün Listesi" active><b-card-text>
+      <b-tab title="Ürün Listesi"   active><b-card-text>
       <div class="row">
             <SearchNavbar />
             <b-col md="12">

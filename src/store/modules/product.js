@@ -6,6 +6,7 @@ const state = () => ({
   productsNoPaging: [],
   product: {
     name: '',
+    barcode: '',
     image: '',
     price: '',
     category: '',
@@ -205,12 +206,14 @@ const mutations = {
   UPDATE_MODAL: (state, data) => {
     const {
       name,
+      barcode,
       price,
       image,
       idCategory,
       id
     } = data
     state.product.name = name
+    state.product.barcode = barcode
     state.product.price = price
     state.product.image = image
     state.product.category = idCategory

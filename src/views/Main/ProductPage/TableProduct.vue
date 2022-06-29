@@ -34,9 +34,7 @@
       <template
         v-slot:cell(id)="data"
       >{{currentPage === 1 ? (data.index + 1) : (perPage * (currentPage - 1) + 1) + data.index}}</template>
-      <template v-slot:cell(image)="data">
-        <img :src="data.item.image" class="img-thumbnail" width="100" alt />
-      </template>
+      <template v-slot:cell(barcode)="data">{{data.item.barcode}}</template>
       <template v-slot:cell(price)="data">{{data.item.price | currency}}</template>
       <template v-slot:cell(option)="data">
         <b-button
@@ -79,7 +77,7 @@ export default {
       sortDesc: true,
       fields: [
         { key: 'id', sortable: true, label: 'no' },
-        'image',
+        { key: 'barcode', sortable: true },
         { key: 'name', sortable: true },
         { key: 'price', sortable: true },
         {

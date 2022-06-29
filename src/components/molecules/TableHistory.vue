@@ -35,7 +35,7 @@
         v-slot:cell(id)="data"
       >{{currentPage === 1 ? (data.index + 1) : (perPage * (currentPage - 1) + 1) + data.index}}</template>
       <template v-slot:cell(invoice)="data">#{{data.item.invoice}}</template>
-      <template v-slot:cell(date)="data">{{data.item.date}}</template>
+      <template v-slot:cell(date)="data">{{data.item.date }}</template>
       <template v-slot:cell(paymentType)="data">{{data.item.paymentType == 0?'Nakit':'Kredi Kartı'}}</template>
       <template
         v-slot:cell(orders)="data"
@@ -70,7 +70,7 @@
               <tr v-for="(detailOrder, i) in row.item.detailOrders" :key="i">
                 <td>{{i + 1}}</td>
                 <td>{{detailOrder.name}}</td>
-                <td>{{detailOrder.barcode}}</td>
+                <td>{{row.item.barcode}}</td>
                 <td>{{detailOrder.initialPrice | currency}}</td>
                 <td>{{detailOrder.purchaseAmount}}</td>
                 <td>{{detailOrder.priceAmount | currency}}</td>
@@ -160,6 +160,7 @@ export default {
     allHistoriesAndDetails() {
       if (this.roleId === 3) {
         return this.allMyHistories.map((history) => {
+          console.log(history)
           const arrOrders = history.orders.split(', ')
           const arrpurchaseAmount = history.purchaseAmount.split(', ')
           const arrInitialPrice = history.initialPrice.split(', ')
@@ -168,6 +169,7 @@ export default {
           arrOrders.map((order, i) => {
             newObjOrders.push({
               name: order,
+              barcode: order.barcode,
               purchaseAmount: arrpurchaseAmount[i],
               initialPrice: arrInitialPrice[i],
               priceAmount: arrPriceAmount[i]

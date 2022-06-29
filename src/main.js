@@ -35,6 +35,7 @@ const options = {
   autoClose: true, // if false, the window will not close after printing
   windowTitle: window.document.title
 }
+Vue.use(require('vue-moment'))
 Vue.use(BootstrapVue)
 Vue.use(VueCurrencyFilter, {
   symbol: '₺',
