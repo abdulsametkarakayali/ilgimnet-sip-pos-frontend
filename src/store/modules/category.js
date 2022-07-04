@@ -49,7 +49,7 @@ const actions = {
     })
     return new Promise((resolve, reject) => {
       Category.post(data).then(response => {
-        dispatch('changeStatusHideModal', true, {
+        dispatch('2', true, {
           root: true
         })
         dispatch('changeIsLoading', false, {

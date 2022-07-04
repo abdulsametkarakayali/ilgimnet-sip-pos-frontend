@@ -1,5 +1,5 @@
 <template>
-  <b-button
+ <b-button
     :variant="variant"
     @click="$emit('cus-click')"
     :class="cusClass"

@@ -1,20 +1,20 @@
 <template>
   <b-modal
     id="modal-primary"
-    ref="modal-category"
+    ref="modal-case"
     hide-footer
-    :title="statusModal === 'add' ? 'Add item' : 'Update item'"
+    :title="statusModal === 'open' ? 'Kasa Açılış Tutar' : 'Kasa Kapanış Tutar'"
   >
-    <form @submit.prevent="statusModal === 'add' ? addCategory() : updateCategory()">
-      <input type="hidden" v-model="category.id" />
-      <g-form-group label="Name" refInp="name" :isRow="true" v-model="category.name" />
+    <form @submit.prevent="statusModal === 'open' ? addMoneyCase() : CloseMoneyCase()">
+      <g-form-group label="Tutar" refInp="price" :isRow="true" v-model="price" />
+       <g-form-group label="Açıklama" refInp="description" :isRow="true" v-model="description" />
       <div class="modal-footer border-top-0">
         <g-button @cus-click="hideModal" cusClass="btn-one px-4 rounded-xs">Cancel</g-button>
         <g-button
           type="submit"
           :isLoading="getLoading"
           cusClass="btn-two px-4 rounded-xs"
-        >{{statusModal === 'add' ? 'Add' : 'Update'}}</g-button>
+        >{{statusModal === 'open' ? 'Kasayı Aç' : 'Kasayı Kapat'}}</g-button>
       </div>
       {{statusHideModal ? hideModal() : ''}}
     </form>
@@ -28,17 +28,20 @@ import { mapGetters, mapActions, mapState } from 'vuex'
 export default {
   name: 'ModalCategory',
   mixins: [mixins],
+  data() {
+    return {
+      price: '',
+      description: ''
+    }
+     },
   methods: {
     ...mapActions(['changeStatusHideModal']),
-    ...mapActions('category', [
-      'getCategories',
-      'postCategory',
-      'patchCategory'
-    ]),
-    addCategory() {
-      this.postCategory({ name: this.category.name })
-        .then((response) => {
-          this.toastSuccess('Category successfully added')
+    ...mapActions('moneycase', ['postMoneyCase']),
+    addMoneyCase() {
+       var currentDate = new Date()
+      this.postMoneyCase({ casetime: currentDate, casetype: 1, salesNo: '', amount: this.price, descriptions: this.description, transacter: this.getDetailUser.id })
+      .then((response) => {
+          this.toastSuccess('Kasa Açıldı')
         })
         .catch(({ error }) => {
           this.toastError(
@@ -46,10 +49,11 @@ export default {
           )
         })
     },
-    updateCategory() {
-      this.patchCategory({ name: this.category.name, id: this.category.id })
-        .then((response) => {
-          this.toastSuccess('Category successfully updated')
+    CloseMoneyCase() {
+       var currentDate = new Date()
+      this.postMoneyCase({ casetime: currentDate, casetype: 3, salesNo: '', amount: this.price, descriptions: this.description, transacter: this.getDetailUser.id })
+      .then((response) => {
+          this.toastSuccess('Kasa Kapatıldı')
         })
         .catch(({ error }) => {
           this.toastError(
@@ -58,17 +62,13 @@ export default {
         })
     },
     hideModal() {
-      this.$refs['modal-category'].hide()
+      this.$refs['modal-case'].hide()
       this.changeStatusHideModal(false)
     }
   },
-  mounted() {
-    this.getCategories()
-  },
   computed: {
     ...mapState(['statusHideModal', 'statusModal']),
-    ...mapState('category', ['category']),
-    ...mapGetters('category', ['allCategories']),
+    ...mapGetters('user', ['getDetailUser', 'allMembers']),
     ...mapGetters(['getLoading'])
   }
 }

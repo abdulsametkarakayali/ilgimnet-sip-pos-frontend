@@ -1,18 +1,22 @@
-import Category from '@/apis/MoneyCase'
+import MoneyCase from '@/apis/MoneyCase'
+import message from './helper/message'
 
 // State
 const state = {
-  categories: [],
-  category: {
-    name: '',
-    id: ''
+  moneyCases: [],
+  moneyCase: {
+    caseType: '',
+    salesNo: '',
+    amount: '',
+    descriptions: '',
+    transacter: ''
   }
 }
 
 // Getters
 const getters = {
-  allCategories: (state) => {
-    return state.categories
+  allmoneyCases: (state) => {
+    return state.moneyCases
   }
 
 }
@@ -20,27 +24,26 @@ const getters = {
 // Actions
 const actions = {
 
-  getCategories({
+  getmoneyCases({
     commit,
     dispatch
   }) {
     dispatch('changeIsLoading', true, {
       root: true
     })
-    Category.all().then(response => {
+    MoneyCase.all().then(response => {
       dispatch('changeIsLoading', false, {
         root: true
       })
-      commit('SET_CATEGORIES', response.data.results)
+      commit('SET_MONEYCASES', response.data.results)
     }).catch(err => {
       dispatch('changeIsLoading', false, {
         root: true
       })
-      commit('SET_CATEGORIES', err.response.data)
+      commit('SET_MONEYCASES', err.response.data)
     })
   },
-
-  postCategory({
+  postMoneyCase({
     commit,
     dispatch
   }, data) {
@@ -48,15 +51,19 @@ const actions = {
       root: true
     })
     return new Promise((resolve, reject) => {
-      Category.post(data).then(response => {
-        dispatch('changeStatusHideModal', true, {
-          root: true
-        })
+      MoneyCase.insert(data).then(response => {
+        console.log(data)
+        resolve(response.data.results)
         dispatch('changeIsLoading', false, {
           root: true
         })
-        dispatch(('getCategories'))
-        resolve(response.data)
+        dispatch('patchCaseStatus', 0, {
+          root: true
+        })
+        dispatch('changeStatusHideModal', true, {
+          root: true
+        })
+        dispatch(('getmoneyCases'))
       }).catch(err => {
         dispatch('changeIsLoading', false, {
           root: true
@@ -65,8 +72,26 @@ const actions = {
       })
     })
   },
-
-  patchCategory({
+  getCaseStatus({
+    commit,
+    dispatch
+  }) {
+    dispatch('changeIsLoading', true, {
+      root: true
+    })
+    MoneyCase.get().then(response => {
+      dispatch('changeIsLoading', false, {
+        root: true
+      })
+      commit('SET_SETTING', response.data.results)
+    }).catch(err => {
+      dispatch('changeIsLoading', false, {
+        root: true
+      })
+      commit('SET_SETTING', err.response.data)
+    })
+  },
+  patchCaseStatus({
     commit,
     dispatch
   }, data) {
@@ -74,66 +99,37 @@ const actions = {
       root: true
     })
     return new Promise((resolve, reject) => {
-      Category.patch(data, data.id).then(response => {
+      MoneyCase.patch(data, data.id).then(response => {
         dispatch('changeStatusHideModal', true, {
           root: true
         })
         dispatch('changeIsLoading', false, {
           root: true
         })
-        dispatch(('getCategories'))
-        resolve(response.data)
-      }).catch(err => {
-        dispatch('changeIsLoading', false, {
-          root: true
-        })
-        reject(err.response.data)
       })
+       message.toastSuccess(data.status === 0 ? 'Kasa Kapatıldı' : 'Kasa Açıldı')
     })
   },
-
-  deleteCategory({
-    commit,
-    dispatch
-  }, id) {
-    dispatch('changeIsLoading', true, {
-      root: true
-    })
-    return new Promise((resolve, reject) => {
-      Category.delete(id).then(response => {
-        dispatch('changeIsLoading', false, {
-          root: true
-        })
-        dispatch(('getCategories'))
-        resolve(response.data)
-      }).catch(err => {
-        dispatch('changeIsLoading', false, {
-          root: true
-        })
-        reject(err.response.data)
-      })
-    })
-  },
-
-  updateModal({
+  updateMoneycase({
     commit
   }, data) {
-    commit('UPDATE_MODAL', data)
+    commit('UPDATE_MONEYCASE', data)
   }
-
 }
-
 // Mutations
 const mutations = {
 
-  SET_CATEGORIES: (state, categories) => {
-    state.categories = categories
+  SET_MONEYCASES: (state, moneyCases) => {
+    state.moneyCases = moneyCases
   },
 
-  UPDATE_MODAL: (state, data) => {
-    state.category = {
-      name: data.name,
-      id: data.id
+  UPDATE_MONEYCASE: (state, data) => {
+    state.moneyCase = {
+      caseType: data.caseType,
+      salesNo: data.salesNo,
+      amount: data.amount,
+      descriptions: data.descriptions,
+      transacter: data.transacter
     }
   }
 
