@@ -5,7 +5,7 @@
         background="bg-1"
         title="Kasa Nakit"
         showUpgrade="true"
-        :price="getCashPayment | currency"
+        :price="getSafePayment | currency"
         :upgradeCheck="checkIncomeStatus"
         :percent="`${difference >= 0 ? '+'+ difference : difference}% Yesterday`"
       />
@@ -61,6 +61,7 @@ export default {
     ...mapGetters('history', [
       'getIncomeToday',
       'getCardPayment',
+      'getSafePayment',
       'getCashPayment',
       'getIncomeYesterday',
       'getThisYearIncome',

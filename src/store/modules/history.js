@@ -7,6 +7,7 @@ const state = {
   historiesBc: [],
   incomeToday: '',
   CardPayment: '',
+  SafePayment: '',
   CashPayment: '',
   incomeYesterday: '',
   ordersToday: '',
@@ -91,6 +92,7 @@ const getters = {
   getIncomeToday: (state) => state.incomeToday,
   getCashPayment: (state) => state.CashPayment,
   getCardPayment: (state) => state.CardPayment,
+  getSafePayment: (state) => state.SafePayment,
   getIncomeYesterday: (state) => state.incomeYesterday,
   getThisYearIncome: (state) => state.thisYearIncome,
   getOrdersToday: (state) => state.ordersToday,
@@ -244,6 +246,7 @@ const mutations = {
 
     state.ordersToday = newHistories.filter(history => history.date === todayGlobal).length
     state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.SafePayment = newHistories.filter(history => history.paymentType === 0 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     state.CashPayment = newHistories.filter(history => history.paymentType === 0 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     state.ordersYesterday = newHistories.filter(history => history.date === getYesterday).length
     state.monthChart.map((monthItem) => {
