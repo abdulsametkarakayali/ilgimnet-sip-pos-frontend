@@ -7,7 +7,7 @@ const state = {
   moneyCase: {
     caseType: '',
     salesNo: '',
-    amount: '',
+    moneycaseamount: '',
     descriptions: '',
     transacter: ''
   }
@@ -127,7 +127,7 @@ const mutations = {
     state.moneyCase = {
       caseType: data.caseType,
       salesNo: data.salesNo,
-      amount: data.amount,
+      moneycaseamount: data.amount,
       descriptions: data.descriptions,
       transacter: data.transacter
     }

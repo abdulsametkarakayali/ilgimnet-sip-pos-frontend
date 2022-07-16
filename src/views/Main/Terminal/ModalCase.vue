@@ -3,9 +3,12 @@
     id="modal-primary"
     ref="modal-case"
     hide-footer
-    :title="statusModal === 'open' ? 'Kasa Açılış Tutar' : 'Kasa Kapanış Tutar'"
-  >
-    <form @submit.prevent="statusModal === 'open' ? addMoneyCase() : CloseMoneyCase()">
+    :title="statusModal === 'open' ? 'Kasa Açılış Tutar':
+            statusModal === 'close' ? 'Kasa Kapanış Tutar':
+            statusModal === 'addmoney' ? 'Eklenen  Tutar':'Çıkarılan  Tutar'">
+    <form @submit.prevent="statusModal === 'open' ? addMoneyCase(casetype=1) :
+                          statusModal === 'close' ? addMoneyCase(casetype=4) :
+                          statusModal === 'addmoney' ? addMoneyCase(casetype=2) :addMoneyCase(casetype=3)">
       <g-form-group label="Tutar" refInp="price" :isRow="true" v-model="price" />
        <g-form-group label="Açıklama" refInp="description" :isRow="true" v-model="description" />
       <div class="modal-footer border-top-0">
@@ -14,7 +17,9 @@
           type="submit"
           :isLoading="getLoading"
           cusClass="btn-two px-4 rounded-xs"
-        >{{statusModal === 'open' ? 'Kasayı Aç' : 'Kasayı Kapat'}}</g-button>
+        >{{statusModal === 'open' ? 'Kasayı Aç' :
+            statusModal === 'close' ? 'Kasa Kapat':
+            statusModal === 'addmoney' ? 'Para Ekle':'Para Çıkar'}}</g-button>
       </div>
       {{statusHideModal ? hideModal() : ''}}
     </form>
@@ -31,29 +36,18 @@ export default {
   data() {
     return {
       price: '',
-      description: ''
+      description: '',
+      casetype: ''
     }
      },
   methods: {
     ...mapActions(['changeStatusHideModal']),
     ...mapActions('moneycase', ['postMoneyCase']),
-    addMoneyCase() {
+    addMoneyCase(casetype) {
        var currentDate = new Date()
-      this.postMoneyCase({ casetime: currentDate, casetype: 1, salesNo: '', amount: this.price, descriptions: this.description, transacter: this.getDetailUser.id })
+      this.postMoneyCase({ casetime: currentDate, casetype: this.casetype, salesNo: '', moneycaseamount: this.casetype === 3 ? -this.price : this.price, descriptions: this.description, transacter: this.getDetailUser.id })
       .then((response) => {
-          this.toastSuccess('Kasa Açıldı')
-        })
-        .catch(({ error }) => {
-          this.toastError(
-            error.sqlMessage ? error.sqlMessage : error.join(', ')
-          )
-        })
-    },
-    CloseMoneyCase() {
-       var currentDate = new Date()
-      this.postMoneyCase({ casetime: currentDate, casetype: 3, salesNo: '', amount: this.price, descriptions: this.description, transacter: this.getDetailUser.id })
-      .then((response) => {
-          this.toastSuccess('Kasa Kapatıldı')
+          this.toastSuccess('İşlem Tamamlandı')
         })
         .catch(({ error }) => {
           this.toastError(

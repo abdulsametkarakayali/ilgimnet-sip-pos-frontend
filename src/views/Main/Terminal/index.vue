@@ -16,6 +16,20 @@
           class="mr-2 my-1"
           size="md"
         >Kasa Aç</b-button>
+               <b-button
+       v-b-modal.modal-primary
+         @click="AddMoney"
+          variant="warning"
+          class="mr-2 my-1"
+          size="md"
+        >Para Ekle</b-button>
+               <b-button
+       v-b-modal.modal-primary
+         @click="TakeOutMoney"
+          variant="secondary"
+          class="mr-2 my-1"
+          size="md"
+        >Para Çıkar</b-button>
           <b-button
            v-b-modal.modal-primary
           @click="CloseCaseStatus"
@@ -86,6 +100,14 @@ export default {
     },
       OpenCaseStatus() {
       this.changeStatusModal('open')
+       this.changeStatusHideModal(false)
+    },
+    AddMoney() {
+      this.changeStatusModal('addmoney')
+       this.changeStatusHideModal(false)
+    },
+   TakeOutMoney() {
+      this.changeStatusModal('takeoutmoney')
        this.changeStatusHideModal(false)
     },
     CloseCaseStatus() {

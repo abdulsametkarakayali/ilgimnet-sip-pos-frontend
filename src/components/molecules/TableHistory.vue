@@ -70,7 +70,7 @@
               <tr v-for="(detailOrder, i) in row.item.detailOrders" :key="i">
                 <td>{{i + 1}}</td>
                 <td>{{detailOrder.name}}</td>
-                <td>{{row.item.barcode}}</td>
+                <td>{{detailOrder.barcode}} </td>
                 <td>{{detailOrder.initialPrice | currency}}</td>
                 <td>{{detailOrder.purchaseAmount}}</td>
                 <td>{{detailOrder.priceAmount | currency}}</td>
@@ -191,6 +191,7 @@ export default {
           arrOrders.map((order, i) => {
             newObjOrders.push({
               name: order,
+              barcode: order.barcode,
               purchaseAmount: arrpurchaseAmount[i],
               initialPrice: arrInitialPrice[i],
               priceAmount: arrPriceAmount[i]
