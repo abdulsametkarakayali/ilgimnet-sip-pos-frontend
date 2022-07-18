@@ -28,7 +28,7 @@
         percent
       />
     </div>
-    <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+    <div class="col-lg-3 col-md-12 col-sm-12 mb-3" v-if="roleId === 3">
       <CardInfoHistory
         background="bg-1"
         title="Bu Yıl Geliri"
@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import CardInfoHistory from '@/components/atoms/CardInfoHistory'
 export default {
   name: 'ListInfoHistory',
@@ -95,6 +95,9 @@ export default {
       'getOrdersToday',
       'getOrdersYesterday'
     ]),
+     ...mapGetters('user', ['getDetailUser']),
+    ...mapGetters(['getLoading']),
+    ...mapState('auth', ['roleId']),
     difference() {
       let result = Math.floor(
         ((this.getIncomeToday - this.getIncomeYesterday) * 100) /

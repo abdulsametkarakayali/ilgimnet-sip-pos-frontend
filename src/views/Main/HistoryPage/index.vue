@@ -8,7 +8,7 @@
             <div class="main-left mb-2">
               <ListInfoHistory />
               <div class="row">
-                <div class="col-md-12 my-4">
+                <div class="col-md-12 my-4" v-if="roleId === 3">
                   <ChartCard />
                 </div>
                 <div class="col-md-12 mb-5 mt-3">
@@ -28,6 +28,7 @@ import ListInfoHistory from '@/components/molecules/ListInfoHistory'
 import Sidebar from '@/components/layout/MainSidebar'
 import OrderCard from '@/components/organisms/OrderCard'
 import ChartCard from '@/components/organisms/ChartCard'
+import { mapActions, mapGetters, mapState } from 'vuex'
 // @ is an alias to /src
 import '@/assets/css/style.css'
 export default {
@@ -62,6 +63,11 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    ...mapGetters('user', ['getDetailUser']),
+    ...mapGetters(['getLoading']),
+    ...mapState('auth', ['roleId'])
   }
 }
 </script>
