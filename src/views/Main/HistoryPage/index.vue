@@ -28,7 +28,7 @@ import ListInfoHistory from '@/components/molecules/ListInfoHistory'
 import Sidebar from '@/components/layout/MainSidebar'
 import OrderCard from '@/components/organisms/OrderCard'
 import ChartCard from '@/components/organisms/ChartCard'
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 // @ is an alias to /src
 import '@/assets/css/style.css'
 export default {
