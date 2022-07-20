@@ -111,7 +111,7 @@ const routes = [
       {
         path: 'terminal',
         name: 'Terminal',
-        component: Terminal,
+        component: Terminal
       },
       {
         path: 'profile',
