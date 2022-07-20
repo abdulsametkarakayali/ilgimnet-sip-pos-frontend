@@ -68,7 +68,7 @@ const routes = [
     ]
   },
   {
-    path: '/demo',
+    path: '/',
     name: 'Main',
     component: Main,
     redirect: {
