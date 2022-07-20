@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import CardInfoHistory from '@/components/atoms/CardInfoHistory'
 export default {
   name: 'ListInfoTerminal',
