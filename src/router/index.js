@@ -112,9 +112,6 @@ const routes = [
         path: 'terminal',
         name: 'Terminal',
         component: Terminal,
-        meta: {
-          requiresAdmin: true
-        }
       },
       {
         path: 'profile',

@@ -8,7 +8,7 @@
             <div class="main-left mb-2">
               <ListInfoHistory />
               <div class="row">
-                <div class="col-md-12 my-4" v-if="roleId === 3">
+                <div class="col-md-12 my-4" v-if="roleId === 1">
                   <ChartCard />
                 </div>
                 <div class="col-md-12 mb-5 mt-3">
