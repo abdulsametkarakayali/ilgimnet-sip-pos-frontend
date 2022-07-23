@@ -11,6 +11,5 @@ export default {
   name: 'MoneyCaseStatus'
 }
 </script>
-
 <style scoped>
 </style>
