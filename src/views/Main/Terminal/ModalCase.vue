@@ -44,6 +44,11 @@ export default {
     ...mapActions(['changeStatusHideModal']),
     ...mapActions('moneycase', ['postMoneyCase']),
     addMoneyCase(casetype) {
+      if (casetype === 1) {
+        localStorage.setItem('moneyCaseStatus', 'open')
+      } else if (casetype === 4) {
+        localStorage.setItem('moneyCaseStatus', 'close')
+       }
        var currentDate = new Date()
       this.postMoneyCase({ casetime: currentDate, casetype: this.casetype, salesNo: '', moneycaseamount: this.casetype === 3 ? -this.price : this.price, descriptions: this.description, transacter: this.getDetailUser.id })
       .then((response) => {

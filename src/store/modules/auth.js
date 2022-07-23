@@ -11,6 +11,7 @@ import router from '@/router'
 const state = {
   token: localStorage.getItem('token') || null,
   idUser: localStorage.getItem('idUser') || null,
+  moneyCaseStatus: window.localStorage.getItem('moneyCaseStatus') === 'open',
   roleId: localStorage.getItem('roleId') || null
 }
 
