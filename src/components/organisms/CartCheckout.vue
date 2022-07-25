@@ -78,7 +78,6 @@ export default {
         })
         this.GENERATE_INVOICE()
         const isMember = this.member.split(', ')
-        
         const dataHistory = {
           invoice: this.invoice,
           paymentType: this.paymentType,
