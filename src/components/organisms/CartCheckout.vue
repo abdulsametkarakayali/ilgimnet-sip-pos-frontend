@@ -85,7 +85,8 @@ export default {
           amount: this.cartCheckout.totalPrice,
           purchaseAmount: purchaseAmount.join(', '),
           initialPrice: initialPrice.join(', '),
-          priceAmount: priceAmount.join(', ')
+          priceAmount: priceAmount.join(', '),
+          ordersArray: productName
         }
         this.postHistory(dataHistory)
           .then((response) => {
