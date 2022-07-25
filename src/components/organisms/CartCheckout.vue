@@ -65,12 +65,12 @@ export default {
           paymentType: this.paymentType
         })
         const productName = []
+        const productID = []
         const purchaseAmount = []
         const initialPrice = []
         const priceAmount = []
         this.cartCheckout.products.map((cart) => {
-           console.log(cart, 12)
-           console.log(cart.product, 13)
+         productID.push(cart.product.id)
           productName.push(cart.product.name)
           purchaseAmount.push(cart.qty)
           initialPrice.push(cart.product.price)
@@ -78,6 +78,7 @@ export default {
         })
         this.GENERATE_INVOICE()
         const isMember = this.member.split(', ')
+        
         const dataHistory = {
           invoice: this.invoice,
           paymentType: this.paymentType,
@@ -88,6 +89,7 @@ export default {
           purchaseAmount: purchaseAmount.join(', '),
           initialPrice: initialPrice.join(', '),
           priceAmount: priceAmount.join(', '),
+          productId: productID.join(', ')
         }
         this.postHistory(dataHistory)
           .then((response) => {
