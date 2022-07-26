@@ -243,7 +243,6 @@ const mutations = {
     } else {
       state.thisYearIncome = newHistories.filter(history => history.year === new Date().getFullYear()).map(val => Number(val.amount)).reduce((a, b) => a + b)
     }
-
     state.ordersToday = newHistories.filter(history => history.historyDate === todayGlobal).length
     state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.historyDate === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     state.SafePayment = newHistories.filter(history => history.paymentType === 0 && history.historyDate === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
