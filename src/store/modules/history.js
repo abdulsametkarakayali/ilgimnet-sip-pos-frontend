@@ -225,29 +225,30 @@ const mutations = {
 
     state.histories = newHistories
     state.historiesBc = newHistories
-    const checkTodakIncome = newHistories.filter(history => history.historyDate === todayGlobal)
-    const checkYesterdayIncome = newHistories.filter(history => history.historyDate === getYesterday)
+    const checkTodakIncome = newHistories.filter(history => history.date === todayGlobal)
+    const checkYesterdayIncome = newHistories.filter(history => history.date === getYesterday)
     const checkYearIncome = newHistories.filter(history => history.year === new Date().getFullYear())
     if (checkTodakIncome.length < 1) {
       state.incomeToday = 0
     } else {
-      state.incomeToday = newHistories.filter(history => history.historyDate === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+      state.incomeToday = newHistories.filter(history => history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     }
     if (checkYesterdayIncome.length < 1) {
       state.incomeYesterday = 0
     } else {
-      state.incomeYesterday = newHistories.filter(history => history.historyDate === getYesterday).map(val => Number(val.amount)).reduce((a, b) => a + b)
+      state.incomeYesterday = newHistories.filter(history => history.date === getYesterday).map(val => Number(val.amount)).reduce((a, b) => a + b)
     }
     if (checkYearIncome.length < 1) {
       state.thisYearIncome = 0
     } else {
       state.thisYearIncome = newHistories.filter(history => history.year === new Date().getFullYear()).map(val => Number(val.amount)).reduce((a, b) => a + b)
     }
-    state.ordersToday = newHistories.filter(history => history.historyDate === todayGlobal).length
-    state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.historyDate === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
-    state.SafePayment = newHistories.filter(history => history.paymentType === 0 && history.historyDate === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
-    state.CashPayment = newHistories.filter(history => history.paymentType === 0 && history.historyDate === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
-    state.ordersYesterday = newHistories.filter(history => history.historyDate === getYesterday).length
+
+    state.ordersToday = newHistories.filter(history => history.date === todayGlobal).length
+    state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.SafePayment = newHistories.filter(history => history.paymentType === 0 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.CashPayment = newHistories.filter(history => history.paymentType === 0 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.ordersYesterday = newHistories.filter(history => history.date === getYesterday).length
     state.monthChart.map((monthItem) => {
       monthItem.value = 0
     })
@@ -287,10 +288,10 @@ const mutations = {
     const newHistories = histories.map(history => {
       return {
         ...history,
-        date: new Date(history.historyDate).toLocaleDateString('tr-TR', { timeZone: 'UTC' }),
-        dateJs: new Date(history.historyDate),
-        year: new Date(history.historyDate).getFullYear(),
-        month: new Date(history.historyDate).getMonth() + 1
+        date: new Date(history.date).toLocaleDateString('tr-TR', { timeZone: 'UTC' }),
+        dateJs: new Date(history.date),
+        year: new Date(history.date).getFullYear(),
+        month: new Date(history.date).getMonth() + 1
       }
     })
 
@@ -301,12 +302,12 @@ const mutations = {
     const d = new Date()
     if (payload === 'today') {
       const today = d.toLocaleDateString('tr-TR', { timeZone: 'UTC' })
-      state.histories = state.historiesBc.filter(history => history.historyDate === today)
+      state.histories = state.historiesBc.filter(history => history.date === today)
     } else if (payload === 'yesterday') {
       const yesterday = new Date()
       yesterday.setDate(yesterday.getDate() - 1)
       const getYesterday = yesterday.toLocaleDateString('tr-TR', { timeZone: 'UTC' })
-      state.histories = state.historiesBc.filter(history => history.historyDate === getYesterday)
+      state.histories = state.historiesBc.filter(history => history.date === getYesterday)
     }
   }
 }
