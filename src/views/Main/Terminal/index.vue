@@ -41,6 +41,10 @@
         </b-row>
             <template >
                <ListInfoTerminal />
+               <div class="row">
+              <div class="col-md-12 mb-5 mt-3">
+               <TableTerminal :moneycases="allmoneyCases" />
+              </div></div>
             </template>
             </div>
           </div>
@@ -53,10 +57,11 @@
 
 <script>
 import mixins from '@/components/mixins/swal'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 import ListInfoTerminal from '@/components/molecules/ListInfoTerminal'
 import Sidebar from '@/components/layout/MainSidebar'
 import ModalCase from './ModalCase.vue'
+import TableTerminal from './TableTerminal'
 // @ is an alias to /src
 import '@/assets/css/style.css'
 export default {
@@ -65,6 +70,7 @@ export default {
   components: {
     Sidebar,
     ModalCase,
+    TableTerminal,
     ListInfoTerminal
   },
   data() {
@@ -95,6 +101,7 @@ export default {
   methods: {
       ...mapActions(['changeStatusHideModal', 'changeStatusModal']),
       ...mapActions('moneycase', ['patchCaseStatus']),
+      ...mapActions('moneycase', ['getmoneyCases']),
      hideModal() {
       this.$refs['modal-product'].hide()
     },
@@ -114,6 +121,13 @@ export default {
       this.changeStatusModal('close')
       this.changeStatusHideModal(false)
      }
-    }
+    },
+    mounted() {
+    this.getmoneyCases()
+  },
+  computed: {
+    ...mapState('moneycase', ['moneyCase']),
+    ...mapGetters('moneycase', ['allmoneyCases'])
+  }
 }
 </script>

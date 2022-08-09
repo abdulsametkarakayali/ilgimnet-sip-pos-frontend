@@ -52,7 +52,6 @@ const actions = {
     })
     return new Promise((resolve, reject) => {
       MoneyCase.insert(data).then(response => {
-        console.log(data)
         resolve(response.data.results)
         dispatch('changeIsLoading', false, {
           root: true
