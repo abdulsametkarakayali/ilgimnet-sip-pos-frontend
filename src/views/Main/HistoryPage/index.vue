@@ -12,8 +12,12 @@
                   <ChartCard />
                 </div>
                 <div class="col-md-12 mb-5 mt-3">
+                  <BestSellerCard />
+                </div>
+                <div class="col-md-12 mb-5 mt-3">
                   <OrderCard />
                 </div>
+
               </div>
             </div>
           </div>
@@ -27,6 +31,7 @@
 import ListInfoHistory from '@/components/molecules/ListInfoHistory'
 import Sidebar from '@/components/layout/MainSidebar'
 import OrderCard from '@/components/organisms/OrderCard'
+import BestSellerCard from '@/components/organisms/BestSellerCard'
 import ChartCard from '@/components/organisms/ChartCard'
 import { mapGetters, mapState } from 'vuex'
 // @ is an alias to /src
@@ -37,7 +42,8 @@ export default {
     Sidebar,
     OrderCard,
     ChartCard,
-    ListInfoHistory
+    ListInfoHistory,
+    BestSellerCard
   },
   data() {
     return {

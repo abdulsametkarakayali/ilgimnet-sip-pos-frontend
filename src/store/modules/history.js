@@ -3,6 +3,7 @@ import History from '@/apis/History'
 // state
 const state = {
   histories: [],
+  bestseller: [],
   myHistories: [],
   historiesBc: [],
   incomeToday: '',
@@ -119,7 +120,20 @@ const actions = {
       })
     })
   },
-
+  getBestSeller({
+    commit,
+    dispatch
+  }) {
+    dispatch('changeIsLoading', true, {
+      root: true
+    })
+    History.bestSeller().then(response => {
+      commit('SET_BESTSELLER', response.data.results)
+      dispatch('changeIsLoading', false, {
+        root: true
+      })
+    })
+  },
   getMyHistories({
     commit,
     dispatch
@@ -286,6 +300,19 @@ const mutations = {
 
   SET_MY_HISTORIES: (state, histories) => {
     const newHistories = histories.map(history => {
+      return {
+        ...history,
+        date: new Date(history.date).toLocaleDateString('tr-TR', { timeZone: 'UTC' }),
+        dateJs: new Date(history.date),
+        year: new Date(history.date).getFullYear(),
+        month: new Date(history.date).getMonth() + 1
+      }
+    })
+
+    state.myHistories = newHistories
+  },
+  SET_BESTSELLER: (state, bestseller) => {
+    const newHistories = bestseller.map(history => {
       return {
         ...history,
         date: new Date(history.date).toLocaleDateString('tr-TR', { timeZone: 'UTC' }),

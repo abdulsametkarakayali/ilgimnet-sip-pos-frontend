@@ -7,6 +7,9 @@ export default {
   all() {
     return Api.get(END_POINT)
   },
+  bestSeller() {
+    return Api.get(`${END_POINT}/getBestSellingToday`)
+  },
   post(data) {
     return Api.post(END_POINT, data)
   },
