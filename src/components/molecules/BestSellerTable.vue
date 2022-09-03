@@ -12,6 +12,7 @@
       <template
         v-slot:cell(no)="data"
       >{{currentPage === 1 ? (data.index + 1) : (perPage * (currentPage - 1) + 1) + data.index}}</template>
+      <template v-slot:cell(data)="data">{{data.item.salestotal* data.item.price}} ₺</template>
     </b-table>
     <b-pagination
       v-model="currentPage"
@@ -32,7 +33,7 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      fields: ['no', 'productName', 'salestotal'],
+      fields: ['no', 'productName', 'salestotal', 'Data'],
       currentPage: 1,
       perPage: 10,
       totalRows: this.bestseller.length
