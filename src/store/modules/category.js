@@ -14,7 +14,6 @@ const getters = {
   allCategories: (state) => {
     return state.categories
   }
-
 }
 
 // Actions

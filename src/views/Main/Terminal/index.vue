@@ -41,11 +41,15 @@
         </b-row>
             <template >
                <ListInfoTerminal />
-               <div class="row">
-              <div class="col-md-12 mb-5 mt-3">
-               <TableTerminal :moneycases="allmoneyCases" />
-              </div></div>
             </template>
+                <template>
+                <div class="px-4 pt-4">
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="font-weight-bold">Kasa İşlemleri </h5>
+                  </div>
+                </div>
+              </template>
+               <TableTerminal :moneycases="allmoneyCases" />
             </div>
           </div>
         </b-col>

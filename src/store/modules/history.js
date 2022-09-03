@@ -92,6 +92,7 @@ const getters = {
   allMyHistories: (state) => state.myHistories,
   getIncomeToday: (state) => state.incomeToday,
   getCashPayment: (state) => state.CashPayment,
+  getBestSellers: (state) => state.bestseller,
   getCardPayment: (state) => state.CardPayment,
   getSafePayment: (state) => state.SafePayment,
   getIncomeYesterday: (state) => state.incomeYesterday,
@@ -226,6 +227,9 @@ const actions = {
 // mutations
 const mutations = {
 
+  SET_BESTSELLER: (state, bestseller) => {
+    state.bestseller = bestseller
+  },
   SET_HISTORIES: (state, histories) => {
     const newHistories = histories.map(history => {
       return {
@@ -311,20 +315,6 @@ const mutations = {
 
     state.myHistories = newHistories
   },
-  SET_BESTSELLER: (state, bestseller) => {
-    const newHistories = bestseller.map(history => {
-      return {
-        ...history,
-        date: new Date(history.date).toLocaleDateString('tr-TR', { timeZone: 'UTC' }),
-        dateJs: new Date(history.date),
-        year: new Date(history.date).getFullYear(),
-        month: new Date(history.date).getMonth() + 1
-      }
-    })
-
-    state.myHistories = newHistories
-  },
-
   FILTER_HISTORY: (state, payload) => {
     const d = new Date()
     if (payload === 'today') {
