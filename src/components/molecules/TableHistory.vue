@@ -36,7 +36,7 @@
       >{{currentPage === 1 ? (data.index + 1) : (perPage * (currentPage - 1) + 1) + data.index}}</template>
       <template v-slot:cell(invoice)="data">#{{data.item.invoice}}</template>
       <template v-slot:cell(date)="data">{{data.item.date }}</template>
-      <template v-slot:cell(paymentType)="data">{{data.item.paymentType == 0?'Nakit':'Kredi Kartı'}}</template>
+      <template v-slot:cell(paymentType)="data">{{data.item.paymentType == 0?'Nakit':data.item.paymentType == 10 ? 'Nakit Para Girişi':'Kredi Kartı'}}</template>
       <template
         v-slot:cell(orders)="data"
       >{{data.item.orders.substring(0, 30) + (data.item.orders.length >= 30 ? '...' : '')}}</template>

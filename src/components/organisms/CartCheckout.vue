@@ -18,7 +18,7 @@
         @click="checkout"
         class="btn btn-success btn-two font-weight-bold py-2 mb-2 btn-block border-0"
       >Ödeme {{cartTotalPrice | currency}} </b-button>
-      <button @click="print" class="btn btn-blue   font-weight-bold py-2 btn-block">Yazdr</button>
+      <button @click="print" class="btn btn-blue   font-weight-bold py-2 btn-block">Yazdır</button>
       <button @click="CLEAR_CART" class="btn btn-one font-weight-bold py-2 btn-block">Cancel</button>
     </div>
     <ModalCheckout />

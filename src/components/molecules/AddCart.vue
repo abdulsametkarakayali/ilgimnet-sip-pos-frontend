@@ -36,12 +36,12 @@ export default {
     data() {
     return {
       detailProduct:
-                     { // Dummy datalarımızı oluşturduk test amaçlı
-                         id: Math.floor(Math.random() * 10000) + 1,
-                         name: '',
-                         price: '',
-                          qty: ''
-                     }
+         { // Dummy datalarımızı oluşturduk test amaçlı
+              id: Math.floor(Math.random() * 10000) + 1,
+              name: '',
+              price: '',
+            qty: ''
+         }
     }
   },
   name: 'AddCart',

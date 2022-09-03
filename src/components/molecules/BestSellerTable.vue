@@ -33,7 +33,20 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      fields: ['no', 'productName', 'salestotal', 'Data'],
+      fields: ['no',
+          {
+            key: 'productName',
+            label: 'Ürün Adı'
+          },
+          {
+            key: 'salestotal',
+            label: 'Satış Adedi'
+          },
+          {
+            key: 'data',
+            label: 'Toplam Tutar'
+          }
+        ],
       currentPage: 1,
       perPage: 10,
       totalRows: this.bestseller.length
