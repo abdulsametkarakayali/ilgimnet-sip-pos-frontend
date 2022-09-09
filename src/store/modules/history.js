@@ -262,10 +262,10 @@ const mutations = {
       state.thisYearIncome = newHistories.filter(history => history.year === new Date().getFullYear()).map(val => Number(val.amount)).reduce((a, b) => a + b)
     }
 
-    state.ordersToday = newHistories.filter(history => history.shiftId === "252").length
-    state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.shiftId === "252").map(val => Number(val.amount)).reduce((a, b) => a + b)
-    state.SafePayment = newHistories.filter(history => (history.paymentType === 0 || history.paymentType === 10) && history.shiftId === "252").map(val => Number(val.amount)).reduce((a, b) => a + b)
-    state.CashPayment = newHistories.filter(history => history.paymentType === 0 && history.shiftId === "252").map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.ordersToday = newHistories.filter(history => history.date === todayGlobal).length
+    state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.SafePayment = newHistories.filter(history => (history.paymentType === 0 || history.paymentType === 10) && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.CashPayment = newHistories.filter(history => history.paymentType === 0 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     state.ordersYesterday = newHistories.filter(history => history.date === getYesterday).length
     state.monthChart.map((monthItem) => {
       monthItem.value = 0
