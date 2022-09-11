@@ -36,7 +36,7 @@
       >{{currentPage === 1 ? (data.index + 1) : (perPage * (currentPage - 1) + 1) + data.index}}</template>
       <template v-slot:cell(invoice)="data">#{{data.item.invoice}}</template>
       <template v-slot:cell(date)="data">{{data.item.date }}</template>
-      <template v-slot:cell(paymentType)="data">{{data.item.paymentType == 0?'Nakit':data.item.paymentType == 10 ? 'Nakit Para Girişi':'Kredi Kartı'}}</template>
+      <template v-slot:cell(paymentType)="data">{{data.item.paymentType == 0?'Nakit':data.item.paymentType == 10 ? 'Para Girişi Yapıldı':data.item.paymentType == 11 ? 'Para Çıkışı Yapıldı':'Kredi Kartı'}}</template>
       <template
         v-slot:cell(orders)="data"
       >{{data.item.orders.substring(0, 30) + (data.item.orders.length >= 30 ? '...' : '')}}</template>
@@ -184,9 +184,9 @@ export default {
       } else {
         return this.allHistories.map((history) => {
           const arrOrders = history.orders.split(', ')
-          const arrpurchaseAmount = history.purchaseAmount.split(', ')
-          const arrInitialPrice = history.initialPrice.split(', ')
-          const arrPriceAmount = history.priceAmount.split(', ')
+          const arrpurchaseAmount = history.purchaseAmount
+          const arrInitialPrice = history.initialPrice
+          const arrPriceAmount = history.priceAmount
           const newObjOrders = []
           arrOrders.map((order, i) => {
             newObjOrders.push({

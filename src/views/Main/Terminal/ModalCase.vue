@@ -8,7 +8,7 @@
             statusModal === 'addmoney' ? 'Eklenen  Tutar':'Çıkarılan  Tutar'">
     <form @submit.prevent="statusModal === 'open' ? addMoneyCase(casetype=1) :
                           statusModal === 'close' ? addMoneyCase(casetype=4) :
-                          statusModal === 'addmoney' ? addMoneyCase(casetype=10) :addMoneyCase(casetype=10)">
+                          statusModal === 'addmoney' ? addMoneyCase(casetype=10) :addMoneyCase(casetype=11)">
       <g-form-group label="Tutar" refInp="price" :isRow="true" v-model="price" />
        <g-form-group label="Açıklama" refInp="description" :isRow="true" v-model="description" />
       <div class="modal-footer border-top-0">
@@ -49,7 +49,7 @@ export default {
       if (casetype === 10 || casetype === 11) {
         const dataHistory = {
           invoice: '000000',
-          paymentType: 10,
+          paymentType: this.casetype,
           idUser: this.getDetailUser.id,
           isMember: 0,
           orders: this.description,
@@ -57,7 +57,7 @@ export default {
           purchaseAmount: this.price,
           initialPrice: this.price,
           priceAmount: this.price,
-          productId: 0
+          productId: '0'
         }
         this.postHistory(dataHistory)
           .then((response) => {
