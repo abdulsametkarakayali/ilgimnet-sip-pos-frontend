@@ -1,7 +1,7 @@
 <script>
-import { bar } from 'vue-chartjs'
+import { Bar  } from 'vue-chartjs'
 export default {
-  extends: bar,
+  extends: Bar,
   props: ['chartData', 'labels'],
   data() {
     return {
