@@ -8,7 +8,7 @@
             statusModal === 'addmoney' ? 'Eklenen  Tutar':'Çıkarılan  Tutar'">
     <form @submit.prevent="statusModal === 'open' ? addMoneyCase(casetype=1) :
                           statusModal === 'close' ? addMoneyCase(casetype=4) :
-                          statusModal === 'addmoney' ? addMoneyCase(casetype=10) :addMoneyCase(casetype=11)">
+                          statusModal === 'addmoney' ? addMoneyCase(casetype=2) :addMoneyCase(casetype=3)">
       <g-form-group label="Tutar" refInp="price" :isRow="true" v-model="price" />
        <g-form-group label="Açıklama" refInp="description" :isRow="true" v-model="description" />
       <div class="modal-footer border-top-0">
@@ -46,24 +46,12 @@ export default {
     ...mapActions('user', ['getMembers']),
     ...mapActions('history', ['postHistory']),
     addMoneyCase(casetype) {
-      if (casetype === 10 || casetype === 11) {
-        const dataHistory = {
-          invoice: '000000',
-          paymentType: this.casetype,
-          idUser: this.getDetailUser.id,
-          isMember: 0,
-          orders: this.description,
-          amount: this.price,
-          purchaseAmount: this.price,
-          initialPrice: this.price,
-          priceAmount: this.price,
-          productId: '0'
-        }
-        this.postHistory(dataHistory)
-          .then((response) => {
-            console.log(response, 'sonuclar')
-            this.toastSuccess('Para Eklendi')
-          })
+      if (casetype === 2 || casetype === 3) {
+        var currentDate = new Date()
+        this.postMoneyCase({ casetime: currentDate, casetype: this.casetype, salesNo: '', moneycaseamount: this.casetype === 3 ? -this.price : this.price, descriptions: this.description, transacter: this.getDetailUser.id })
+      .then((response) => {
+          this.toastSuccess('İşlem Tamamlandı')
+        })
           .catch(({ error }) => {
             this.toastError(
               error.sqlMessage ? error.sqlMessage : error.join(', ')
@@ -71,7 +59,7 @@ export default {
           })
       } else if (casetype === 1 || casetype === 4) {
         var currentDate = new Date()
-      this.postMoneyCase({ casetime: currentDate, casetype: this.casetype, salesNo: '', moneycaseamount: this.casetype === 3 ? -this.price : this.price, descriptions: this.description, transacter: this.getDetailUser.id })
+        this.postMoneyCase({ casetime: currentDate, casetype: this.casetype, salesNo: '', moneycaseamount: this.price, descriptions: this.description, transacter: this.getDetailUser.id })
       .then((response) => {
           this.toastSuccess('İşlem Tamamlandı')
         })
