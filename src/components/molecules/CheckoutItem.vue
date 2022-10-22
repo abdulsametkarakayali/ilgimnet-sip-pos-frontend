@@ -25,8 +25,10 @@
         >Müşteri: {{emailMember}}</small>
         <p class="font-weight-bold font-15">Ödeme:{{cartCheckout.paymentType==0?'Nakit':'Kredi Kartı'}}</p>
         <hr>
-         <span>Mali Değeri Yoktur.
+         <span style="font-size:small">Mali Değeri Yoktur.
             Ürünlerimizi sağlıkla kullanın
+           </span><br/><br/>
+           <span style="font-size:small ">Takı grubu ürünlerinin, sağlık ve hijyen açısından iade edilmesi ve değişimi kabul edilmemektedir.
            </span>
             <hr>
           <span>www.ilgim.net

@@ -58,7 +58,6 @@ export default {
             )
           })
       } else if (casetype === 1 || casetype === 4) {
-        var currentDate = new Date()
         this.postMoneyCase({ casetime: currentDate, casetype: this.casetype, salesNo: '', moneycaseamount: this.price, descriptions: this.description, transacter: this.getDetailUser.id })
       .then((response) => {
           this.toastSuccess('İşlem Tamamlandı')
