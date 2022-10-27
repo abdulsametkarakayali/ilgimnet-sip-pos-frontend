@@ -20,7 +20,7 @@
     "object-hash": "^2.0.3",
     "popper.js": "^1.16.1",
     "rm": "^0.1.8",
-    "serve": "^6.5.8",
+    "serve": "^14.0.1",
     "vee-validate": "^3.3.9",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.0",
