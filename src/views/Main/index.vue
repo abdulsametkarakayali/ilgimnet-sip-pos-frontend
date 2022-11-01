@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div>
     <Navbar />
@@ -5,7 +6,6 @@
     <Footer />
   </div>
 </template>
-
 <script>
 import { mapActions } from 'vuex'
 import Navbar from '@/components/layout/MainNavbar'

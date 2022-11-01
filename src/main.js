@@ -61,9 +61,8 @@ Vue.directive('focus', {
   }
 })
 Vue.use(VueHtmlToPaper, options)
-
 new Vue({
-  store,
   router,
+  store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

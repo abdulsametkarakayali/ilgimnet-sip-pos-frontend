@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <MainContainer>
     <div class="main-left mb-5">
