@@ -86,7 +86,7 @@ export default {
     ...mapState('cart', ['cartCheckout', 'emailMember']),
     ...mapGetters('cart', ['getInvoice']),
     ...mapGetters('user', ['getDetailUser']),
-    ...mapGetters(['getLoading'])
+    ...mapGetters(['getLoading']),
   }
 }
 </script>

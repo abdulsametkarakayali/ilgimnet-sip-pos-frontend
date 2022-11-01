@@ -3,21 +3,52 @@
     <CartList v-if="carts.length > 0" />
     <CartEmpty v-if="carts.length < 1" />
     <div v-if="carts.length > 0" class="checkout py-5">
-       <div class="form-group">
-            <label for>Ödeme Yöntemi</label>
+    <div class="accordion" role="tablist">
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-1 variant="info">Ödeme Yöntemi</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <label for>Ödeme Yöntemi</label>
             <select class="form-control" v-model="paymentType">
               <option  value="0" selected  >Nakit</option>
               <option  value="1">Kredi Kartı</option>
             </select>
-       </div>
-      <div class="form-group">
+        </b-card-body>
+      </b-collapse>
+    </b-card>
+
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-2 variant="info">İndirim Tutarı</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <label for>İndirim Tutarı</label>
+            <input type="text" v-bind="discount"    class="form-control"  />
+        </b-card-body>
+      </b-collapse>
+    </b-card>
+
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-3 variant="info">Müşteri Seçin </b-button>
+      </b-card-header>
+      <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <div class="form-group">
         <label>Müşteri Seç</label>
         <model-select :options="valueMemberForInput" v-model="member" placeholder="Select Member"></model-select>
       </div>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
+  </div>
       <b-button
         @click="checkout"
-        class="btn btn-success btn-two font-weight-bold py-2 mb-2 btn-block border-0"
-      >Ödeme {{cartTotalPrice | currency}} </b-button>
+        class="btn btn-success btn-two font-weight-bold py-2 mb-2 btn-block border-0 mt-5"
+      >Ödeme {{cartTotalPrice| currency}} </b-button>
       <button @click="print" class="btn btn-blue   font-weight-bold py-2 btn-block">Yazdır</button>
       <button @click="CLEAR_CART" class="btn btn-one font-weight-bold py-2 btn-block">Cancel</button>
     </div>
