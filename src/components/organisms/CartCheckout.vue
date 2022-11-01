@@ -18,19 +18,6 @@
         </b-card-body>
       </b-collapse>
     </b-card>
-
-    <b-card no-body class="mb-1">
-      <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle.accordion-2 variant="info">İndirim Tutarı</b-button>
-      </b-card-header>
-      <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
-        <b-card-body>
-          <label for>İndirim Tutarı</label>
-            <input type="text" v-bind="discount"    class="form-control"  />
-        </b-card-body>
-      </b-collapse>
-    </b-card>
-
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
         <b-button block v-b-toggle.accordion-3 variant="info">Müşteri Seçin </b-button>
