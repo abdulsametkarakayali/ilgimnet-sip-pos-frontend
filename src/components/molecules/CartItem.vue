@@ -12,10 +12,19 @@
         <img class="reset-class" :src="require(`@/assets/images/trash.svg`)" width="30" alt srcset />
       </g-button>
     </div>
-    <div class="name-input">
+    
+    <div class="name-input">      
       <span class="chart-title-product">{{cart.product.name}}</span>
-    {{cart.product.price | currency}} |{{cart.product.price * cart.qty| currency}}
-      <CartInput :qty="cart.qty" :product="cart.product" />
+      <div class="row">
+      <div class="col-md-6">
+      <input type="text"  v-model="cart.product.price "  class="form-control"  />
+    </div>
+      <div class="col-md-6">|{{cart.product.price * cart.qty| currency}}
+    </div> </div>
+    <div class="row mt-2">
+    <div class="col-md-6 mt-n1">
+      <CartInput :qty="cart.qty" :product="cart.product" /></div>
+    </div>
     </div>
   </div>
 </template>

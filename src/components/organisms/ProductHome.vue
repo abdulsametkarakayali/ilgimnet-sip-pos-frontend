@@ -5,7 +5,7 @@
       <b-tab title="Ürün Listesi"   active><b-card-text>
       <div class="row">
             <SearchNavbar />
-            <b-col md="12">
+            <b-col md="8">
               <OrderProduct />
             </b-col>
        </div>
@@ -18,7 +18,7 @@
    <ProductList v-if="!getLoading" />
     <div class="row" v-if="!getLoading">
       <ProductNotFound v-if="allProducts.length < 1" />
-      <b-col v-if="product.totalProduct !== 0" md="12 mt-4">
+      <b-col v-if="product.totalProduct !== 0" md="8 mt-4">
         <MainPagination
           :dataPagination="{
               perPage: product.perPage,
@@ -75,7 +75,7 @@ export default {
         order: this.product.ordering.order,
         search: this.product.searchInputText,
         page,
-        limit: this.roleId !== 3 ? 8 : 20
+        limit: this.roleId !== 3 ? 6 : 20
       })
     }
   },
