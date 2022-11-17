@@ -12,12 +12,12 @@ export default {
   methods: {
     ...mapActions('auth', ['logoutUser']),
     logout() {
-      this.confirmSwal('Logout', 'Are you sure you want to log out ?', 'warning', () => {
+      this.confirmSwal('Çıkış', 'Oturumu kapatmak istediğinizden emin misiniz ?', 'warning', () => {
         this.logoutUser()
         this.$router.push({
           name: 'Login'
         })
-        this.toastSuccess('Logout success')
+        this.toastSuccess('Çıkış Başarılı')
       })
     }
   }
