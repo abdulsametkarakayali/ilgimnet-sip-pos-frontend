@@ -160,7 +160,7 @@ const actions = {
         dispatch('changeIsLoading', false, {
           root: true
         })
-        dispatch('getProducts')
+        dispatch('getProductsNoPaging')
         resolve(response.data)
       }).catch(err => {
         dispatch('changeIsLoading', false, {
