@@ -71,9 +71,9 @@
                 <td>{{i + 1}}</td>
                 <td>{{detailOrder.name}}</td>
                 <td>{{detailOrder.barcode}} </td>
-                <td>{{detailOrder.initialPrice | currency}}</td>
-                <td>{{detailOrder.purchaseAmount}}</td>
-                <td>{{detailOrder.priceAmount | currency}}</td>
+                <td>{{row.item.priceAmount }}</td>
+                <td>{{row.item.purchaseAmount}}</td>
+                <td>{{row.item.priceAmount  }}</td>
               </tr>
               <tr>
                 <td colspan="4">Total Payment</td>

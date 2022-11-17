@@ -2,7 +2,7 @@
   <div class="chart-product mb-4">
     <div class="position-relative">
       <div class="img-list-chart">
-        <img :src="cart.product.image" alt />
+        <img src="@/assets/images/default_product.png" width="30" alt />
       </div>
       <g-button
         @cus-click="REMOVE_PRODUCT_FROM_CART(cart.product.id)"

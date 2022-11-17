@@ -292,6 +292,8 @@ nav-link active {
 
 .chart-product {
   display: flex;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 12px;
 }
 
 .img-list-chart {

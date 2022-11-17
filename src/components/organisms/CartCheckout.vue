@@ -143,7 +143,9 @@ export default {
   }
 },
    mounted() {
+
     if (this.roleId !== 3) this.getMembers()
+    this.$root.$emit("printInvoice") //like this
   },
   computed: {
     ...mapState('auth', ['roleId']),
