@@ -263,7 +263,7 @@ const mutations = {
     }
 
     state.ordersToday = newHistories.filter(history => history.date === todayGlobal && (history.paymentType === 0 || history.paymentType === 1)).length
-    //state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     state.SafePayment = (newHistories.filter(history => history.date === todayGlobal && history.paymentType !== 1).map(val => Number(val.paymentType === 11 ? -val.amount : val.amount)).reduce((a, b) => a + b))
     state.CashPayment = newHistories.filter(history => history.paymentType === 0 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     state.ordersYesterday = newHistories.filter(history => history.date === getYesterday).length
