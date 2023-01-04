@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState ,mapActions} from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import CardInfoHistory from '@/components/atoms/CardInfoHistory'
 export default {
   name: 'ListInfoTerminal',
@@ -73,7 +73,7 @@ export default {
     ...mapGetters('user', ['getDetailUser']),
     ...mapGetters(['getLoading']),
     ...mapState('auth', ['roleId']),
-    ...mapState('getSafeOpeningAmount'),
+
     ...mapGetters('moneycase',['getSafeOpeningAmount']),
     difference() {
       let result = Math.floor(

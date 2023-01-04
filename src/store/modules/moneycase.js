@@ -32,7 +32,6 @@ const actions = {
   getSafeOpeningAmount({commit}) {
     MoneyCase.getSafeOpeningAmount().then(response => {
       commit('SET_CASHPAYMENTNET', response.data.results)
-      console.log(response.data.results)
     })
   },
 
@@ -130,7 +129,6 @@ const mutations = {
 
   SET_MONEYCASES: (state, moneyCases) => {
     state.moneyCases = moneyCases
-    console.log(state.moneyCases )
   },
 
   SET_CASHPAYMENTNET:(state, payload) => {

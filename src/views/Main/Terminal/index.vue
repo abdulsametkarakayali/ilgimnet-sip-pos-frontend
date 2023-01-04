@@ -61,7 +61,7 @@
 
 <script>
 import mixins from '@/components/mixins/swal'
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import ListInfoTerminal from '@/components/molecules/ListInfoTerminal'
 import Sidebar from '@/components/layout/MainSidebar'
 import ModalCase from './ModalCase.vue'
@@ -131,7 +131,6 @@ export default {
     this.getSafeOpeningAmount()
   },
   computed: {
-    ...mapState('moneycase', ['getmoneyCases']),
     ...mapGetters('moneycase', ['allmoneyCases']),
   }
 }
