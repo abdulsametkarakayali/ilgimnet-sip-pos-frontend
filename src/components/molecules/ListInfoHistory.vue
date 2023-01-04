@@ -24,7 +24,7 @@
       <CardInfoHistory
         background="bg-1"
         title="Ortalama İşlem Tutarı"
-        :price="getIncomeToday/getOrdersToday | currency"
+        :price="getIncomeToday / getOrdersToday | currency"
         percent
       />
     </div>

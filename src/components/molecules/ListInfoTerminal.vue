@@ -40,7 +40,7 @@
       <CardInfoHistory
         background="bg-1"
         title="Bu Ayın Cirosu "
-        :price="getThisMonthIncome| currency"
+        :price="getThisMonthIncome | currency"
         percent
       />
     </div>
@@ -49,7 +49,7 @@
   <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
       <CardInfoHistory
         background="bg-1"
-        title="Toplam İade"
+        title="Bu Gün Ciro"
         showUpgrade="true"
         :price="getIncomeToday | currency"
         :upgradeCheck="checkIncomeStatus"
@@ -76,6 +76,7 @@ export default {
       'getSafePayment',
       'getCashPayment',
       'getIncomeYesterday',
+      'getThisMonthIncome',
       'getThisYearIncome',
       'getOrdersToday',
       'getOrdersYesterday'

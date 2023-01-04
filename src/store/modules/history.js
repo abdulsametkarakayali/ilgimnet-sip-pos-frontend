@@ -14,7 +14,7 @@ const state = {
   ordersToday: '',
   ordersYesterday: '',
   thisYearIncome: '',
-  thisMonthIncome: '',
+  MonthIncome: '',
   monthChart: [ //
     {
       id: 1,
@@ -98,7 +98,7 @@ const getters = {
   getSafePayment: (state) => state.SafePayment,
   getIncomeYesterday: (state) => state.incomeYesterday,
   getThisYearIncome: (state) => state.thisYearIncome,
-  getThisMonthIncome: (state) => state.thisMonthIncome,
+  getThisMonthIncome: (state) => state.MonthIncome,
   getOrdersToday: (state) => state.ordersToday,
   getOrdersYesterday: (state) => state.ordersYesterday,
   getMonthChart: (state) => state.monthChart,
@@ -265,7 +265,7 @@ const mutations = {
     } else {
       state.thisYearIncome = newHistories.filter(history => history.year === new Date().getFullYear()).map(val => Number(val.amount)).reduce((a, b) => a + b)
     }
-    state.thisMonthIncome = newHistories.filter(history => history.year === new Date().getMonth()).map(val => Number(val.amount)).reduce((a, b) => a + b)
+    state.MonthIncome = newHistories.filter(history => history.month === new Date().getMonth()).map(val => Number(val.amount)).reduce((a, b) => a + b,0)
     state.ordersToday = newHistories.filter(history => history.date === todayGlobal && (history.paymentType === 0 || history.paymentType === 1)).length
     state.CardPayment = newHistories.filter(history => history.paymentType === 1 && history.date === todayGlobal).map(val => Number(val.amount)).reduce((a, b) => a + b)
     state.SafePayment = (newHistories.filter(history => history.date === todayGlobal && history.paymentType !== 1).map(val => Number(val.paymentType === 11 ? -val.amount : val.amount)).reduce((a, b) => a + b))
@@ -274,13 +274,17 @@ const mutations = {
     state.monthChart.map((monthItem) => {
       monthItem.value = 0
     })
+
     state.monthChart.map((monthItem) => {
       newHistories.map((historyItem) => {
         if (monthItem.id === historyItem.month) {
           monthItem.value += historyItem.amount
+         
         }
       })
+   
     })
+    console.log( state.monthChart.value)
     const chartDateDay = new Date()
     chartDateDay.setDate(chartDateDay.getDate() + 1)
     const listSevenDay = []
