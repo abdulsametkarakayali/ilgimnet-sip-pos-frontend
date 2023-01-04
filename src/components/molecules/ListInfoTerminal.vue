@@ -31,7 +31,7 @@
     <div class="col-lg-3 col-md-12 col-sm-12 mb-3 "  v-if="roleId === 1">
       <CardInfoHistory
         background="bg-1"
-        title="Kasada Olması Gereken"
+        title="Bu Ayın Cirosu"
         :price="getThisYearIncome| currency"
         percent
       />
