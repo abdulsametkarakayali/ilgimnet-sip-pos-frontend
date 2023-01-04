@@ -24,7 +24,7 @@
       <CardInfoHistory
         background="bg-1"
         title="Kasa Açılış Tutarı"
-        :price="getIncomeToday/getOrdersToday | currency"
+        :price="getSafeOpeningAmount | currency"
         percent
       />
     </div>

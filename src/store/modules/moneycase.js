@@ -5,7 +5,7 @@ import message from './helper/message'
 const state = {
   moneyCases: [],
   SafeOpeningAmount: [],
-  CashPaymentNet:2,
+  CashPaymentNet:0,
   moneyCase: {
     caseType: '',
     salesNo: '',
@@ -47,7 +47,7 @@ const actions = {
       dispatch('changeIsLoading', false, {
         root: true
       })
-     
+      commit('SET_MONEYCASES', response.data.results)
     }).catch(err => {
       dispatch('changeIsLoading', false, {
         root: true
@@ -130,11 +130,11 @@ const mutations = {
 
   SET_MONEYCASES: (state, moneyCases) => {
     state.moneyCases = moneyCases
+    console.log(state.moneyCases )
   },
 
   SET_CASHPAYMENTNET:(state, payload) => {
     state.CashPaymentNet  = payload[0].moneycaseamount 
-  console.log(state.CashPaymentNet)
   },
 
   

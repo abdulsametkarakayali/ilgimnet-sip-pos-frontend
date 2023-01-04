@@ -131,8 +131,8 @@ export default {
     this.getSafeOpeningAmount()
   },
   computed: {
-    ...mapState('moneycase', ['moneyCase']),
-    ...mapGetters('moneycase', ['allmoneyCases'])
+    ...mapState('moneycase', ['getmoneyCases']),
+    ...mapGetters('moneycase', ['allmoneyCases']),
   }
 }
 </script>
