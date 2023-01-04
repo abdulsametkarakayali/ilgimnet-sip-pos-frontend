@@ -5,7 +5,7 @@
         background="bg-1"
         title="Kasa Nakit"
         showUpgrade="true"
-        :price="getSafePayment | currency"
+        :price="getSafePayment  + getSafeOpeningAmount   | currency"
         :upgradeCheck="checkIncomeStatus"
         :percent="`${difference >= 0 ? '+'+ difference : difference}% Yesterday`"
       />
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState ,mapActions} from 'vuex'
 import CardInfoHistory from '@/components/atoms/CardInfoHistory'
 export default {
   name: 'ListInfoTerminal',
@@ -58,8 +58,10 @@ export default {
     CardInfoHistory
   },
   computed: {
+   
     ...mapGetters('history', [
       'getIncomeToday',
+      'allcash',
       'getCardPayment',
       'getSafePayment',
       'getCashPayment',
@@ -71,6 +73,8 @@ export default {
     ...mapGetters('user', ['getDetailUser']),
     ...mapGetters(['getLoading']),
     ...mapState('auth', ['roleId']),
+    ...mapState('getSafeOpeningAmount'),
+    ...mapGetters('moneycase',['getSafeOpeningAmount']),
     difference() {
       let result = Math.floor(
         ((this.getIncomeToday - this.getIncomeYesterday) * 100) /

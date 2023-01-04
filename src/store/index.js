@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 import product from './modules/product.js'
 import category from './modules/category.js'
 import moneycase from './modules/moneycase'
@@ -10,6 +9,7 @@ import user from './modules/user.js'
 import auth from './modules/auth.js'
 import globalStore from './globalStore.js'
 
+Vue.config.devtools = true
 Vue.use(Vuex)
 
 export default new Vuex.Store({

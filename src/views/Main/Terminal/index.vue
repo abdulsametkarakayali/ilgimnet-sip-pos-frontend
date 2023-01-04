@@ -105,7 +105,7 @@ export default {
   methods: {
       ...mapActions(['changeStatusHideModal', 'changeStatusModal']),
       ...mapActions('moneycase', ['patchCaseStatus']),
-      ...mapActions('moneycase', ['getmoneyCases']),
+      ...mapActions('moneycase', ['getmoneyCases','getSafeOpeningAmount']),
      hideModal() {
       this.$refs['modal-product'].hide()
     },
@@ -128,6 +128,7 @@ export default {
     },
     mounted() {
     this.getmoneyCases()
+    this.getSafeOpeningAmount()
   },
   computed: {
     ...mapState('moneycase', ['moneyCase']),

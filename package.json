@@ -6,7 +6,7 @@
     "node": "15.x"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve ",
     "start:dev": "nodemon ./src/main.js",
     "start": "serve -s -p $PORT dist ",
     "build": "vue-cli-service build",

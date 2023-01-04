@@ -16,7 +16,7 @@
       <template
         v-slot:cell(no)="data"
       >{{currentPage === 1 ? (data.index + 1) : (perPage * (currentPage - 1) + 1) + data.index}}</template>
-       <template v-slot:cell(invoice)="data">#{{data.item.descriptions}}</template>
+       <template v-slot:cell(invoice)="data">#{{data.item.data}}</template>
        <template v-slot:cell(casetime)="data">#{{data.item.casetime}}</template>
        <template v-slot:cell(moneycaseamount)="data">{{data.item.moneycaseamount}}</template>
       <template v-slot:cell(casetype)="data">{{data.item.casetype == 1?'Kasa Açıldı': data.item.casetype == 2?'Para Eklendi':data.item.casetype == 3?'Para Çıkarıldı':'Kasa Kapatıldı' }}</template>
@@ -53,7 +53,8 @@ export default {
     ...mapActions('moneyCase', [
       'updateModal',
       'deleteCategory',
-      'getMoneyCases'
+      'getMoneyCases',
+      'updateMoneycase'
     ]),
     updateModalData(item) {
       this.changeStatusModal('update')
@@ -73,7 +74,11 @@ export default {
       })
     }
   },
-  computed: mapGetters(['getLoading'])
+  computed:{
+  
+     ...mapGetters(['getLoading']),
+
+    }
 }
 </script>
 

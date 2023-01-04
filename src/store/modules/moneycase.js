@@ -4,6 +4,8 @@ import message from './helper/message'
 // State
 const state = {
   moneyCases: [],
+  SafeOpeningAmount: [],
+  CashPaymentNet:2,
   moneyCase: {
     caseType: '',
     salesNo: '',
@@ -17,12 +19,22 @@ const state = {
 const getters = {
   allmoneyCases: (state) => {
     return state.moneyCases
-  }
-
+  },
+  allcash: (state) => {
+    return state.CashPaymentNet
+  },
+  getSafeOpeningAmount: (state) => state.CashPaymentNet,
 }
 
 // Actions
 const actions = {
+
+  getSafeOpeningAmount({commit}) {
+    MoneyCase.getSafeOpeningAmount().then(response => {
+      commit('SET_CASHPAYMENTNET', response.data.results)
+      console.log(response.data.results)
+    })
+  },
 
   getmoneyCases({
     commit,
@@ -35,7 +47,7 @@ const actions = {
       dispatch('changeIsLoading', false, {
         root: true
       })
-      commit('SET_MONEYCASES', response.data.results)
+     
     }).catch(err => {
       dispatch('changeIsLoading', false, {
         root: true
@@ -109,9 +121,7 @@ const actions = {
        message.toastSuccess(data.status === 0 ? 'Kasa Kapatıldı' : 'Kasa Açıldı')
     })
   },
-  updateMoneycase({
-    commit
-  }, data) {
+  updateMoneycase({commit}, data) {
     commit('UPDATE_MONEYCASE', data)
   }
 }
@@ -122,6 +132,12 @@ const mutations = {
     state.moneyCases = moneyCases
   },
 
+  SET_CASHPAYMENTNET:(state, payload) => {
+    state.CashPaymentNet  = payload[0].moneycaseamount 
+  console.log(state.CashPaymentNet)
+  },
+
+  
   UPDATE_MONEYCASE: (state, data) => {
     state.moneyCase = {
       caseType: data.caseType,

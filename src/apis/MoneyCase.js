@@ -7,6 +7,9 @@ export default {
    all() {
     return Api.get(END_POINT)
   },
+  getSafeOpeningAmount() {
+    return Api.get(`${END_POINT}/getLastInsertId`)
+  },
   get() {
     return Api.get(`${END_POINT}/casestatus`)
   },

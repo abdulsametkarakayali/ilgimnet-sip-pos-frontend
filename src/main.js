@@ -20,6 +20,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'vue-search-select/dist/VueSearchSelect.css'
 
+
 const options = {
   styles: [
     'https://stackpath.bootstrapcdn.com/bootstrawp/4.5.2/css/bootstrap.min.css',
