@@ -16,16 +16,6 @@
 
             </router-link>
           </div>
-          <div class="col-md-5 col-sm-12 hide-mobile">
-            <div v-lazy-container="{ selector: 'img' }">
-              <img
-                :data-src="require(`@/assets/images/desktop.png`)"
-                :data-loading="require(`@/assets/images/charlie-loader.gif`)"
-                class="lazyload img-fluid img-head"
-                alt="desktop"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </header>
