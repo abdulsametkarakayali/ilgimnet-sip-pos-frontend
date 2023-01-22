@@ -4,7 +4,7 @@
     <header id="header">
       <div class="container">
         <div class="row">
-          <div class="col-md-7 pr-5 left-header-mobile">
+          <div class="col-md-12  left-header-mobile">
             <h1 class="header-title">
               Pos Ekran Sistem
             </h1>
