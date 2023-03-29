@@ -45,7 +45,7 @@ export default {
     ...mapGetters(['getLoading']),
     chartData() {
       let thisMonth = new Date().getMonth()
-      if (thisMonth <= 12) thisMonth = 12
+      if (thisMonth <= 3) thisMonth = 3
       const valueCart = []
       for (let i = 0; i <= thisMonth; i++) {
         valueCart.push(this.getMonthChart[i].value)
@@ -54,7 +54,7 @@ export default {
     },
     labels() {
       let thisMonth = new Date().getMonth()
-      if (thisMonth <= 12) thisMonth = 12
+      if (thisMonth <= 3) thisMonth = 3
       const labels = []
       for (let i = 0; i <= thisMonth; i++) {
         labels.push(this.getMonthChart[i].name)
