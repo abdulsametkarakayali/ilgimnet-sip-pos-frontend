@@ -21,6 +21,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Anasayfa</a>
+          </li>
         </ul>
       </div>
     </div>
