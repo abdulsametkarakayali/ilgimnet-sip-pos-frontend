@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "scripts": {
     "serve": "vue-cli-service serve ",
     "start:dev": "nodemon ./src/main.js",
-    "start": "serve -s -p $PORT dist ",
+    "start": "vue-cli-service serve ",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
@@ -60,7 +60,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-standard": "^4.1.0",
     "eslint-plugin-vue": "^9.10.0",
-    "vue-jest": "^3.0.7",
+    "vue-jest": "^4.0.1",
     "vue-template-compiler": "^2.7.14"
   },
   "description": "<br />\r <p align=\"center\">",
