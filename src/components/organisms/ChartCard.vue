@@ -45,7 +45,7 @@ export default {
     ...mapGetters(['getLoading']),
     chartData() {
       let thisMonth = new Date().getMonth()
-      if (thisMonth <= 3) thisMonth = 3
+      if (thisMonth <= 8) thisMonth = 8
       const valueCart = []
       for (let i = 0; i <= thisMonth; i++) {
         valueCart.push(this.getMonthChart[i].value)
