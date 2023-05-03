@@ -16,6 +16,25 @@ const getters = {
   }
 }
 
+// Mutations
+const mutations = {
+
+  SET_CATEGORIES: (state, categories) => {
+    state.categories = categories
+  },
+
+  UPDATE_MODAL: (state, data) => {
+    state.category = {
+      name: data.name,
+      id: data.id
+    }
+  }
+
+}
+
+
+
+
 // Actions
 const actions = {
 
@@ -118,22 +137,6 @@ const actions = {
     commit
   }, data) {
     commit('UPDATE_MODAL', data)
-  }
-
-}
-
-// Mutations
-const mutations = {
-
-  SET_CATEGORIES: (state, categories) => {
-    state.categories = categories
-  },
-
-  UPDATE_MODAL: (state, data) => {
-    state.category = {
-      name: data.name,
-      id: data.id
-    }
   }
 
 }
